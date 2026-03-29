@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUROSFERA LTD — Ваше представительство в Евросоюзе</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FFFFFF;
+  --bg-soft: #F7F9FC;
+  --blue-50: #EEF2FF;
+  --blue-100: #E0E7FF;
+  --blue-500: #4F6AF5;
+  --blue-600: #4338CA;
+  --blue-700: #3730A3;
+  --gradient-start: #667EEA;
+  --gradient-end: #764BA2;
+  --text-dark: #1A1A2E;
+  --text-body: #4A5568;
+  --success: #10B981;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: var(--text-body); background: var(--white); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: var(--text-dark); }
+.reveal { opacity:1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Header */
+.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 14px 0; transition: background .3s, box-shadow .3s; }
+.header.scrolled { background: rgba(255,255,255,.85); backdrop-filter: blur(12px); box-shadow: 0 1px 12px rgba(0,0,0,.06); }
+.header .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+.header .logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: var(--text-dark); }
+.header .logo img { height: 34px; }
+.header nav { display: flex; gap: 28px; }
+.header nav a { font-size: 14px; font-weight: 500; color: var(--text-body); transition: color .2s; }
+.header nav a:hover { color: var(--blue-500); }
+.header .cta-sm { background: var(--blue-500); color: #fff; padding: 8px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; transition: background .2s; }
+.header .cta-sm:hover { background: var(--blue-600); }
+
+/* Hero */
+.hero { padding: 140px 0 80px; background: linear-gradient(135deg, #fff 0%, var(--blue-50) 50%, #f3eeff 100%); position: relative; overflow: hidden; }
+.hero .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 60px; }
+.hero-text { flex: 1; min-width: 0; }
+.hero-text h1 { font-size: 44px; font-weight: 700; line-height: 1.18; margin-bottom: 18px; }
+.hero-text h1 span { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-text p { font-size: 18px; line-height: 1.6; margin-bottom: 28px; max-width: 480px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+.btn-primary { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; padding: 14px 32px; border-radius: 10px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(102,126,234,.35); }
+.btn-outline { background: transparent; color: var(--blue-600); padding: 14px 32px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 2px solid var(--blue-500); cursor: pointer; transition: background .2s, color .2s; }
+.btn-outline:hover { background: var(--blue-500); color: #fff; }
+.badges { display: flex; gap: 20px; flex-wrap: wrap; }
+.badge { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text-dark); background: rgba(255,255,255,.8); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--blue-100); }
+.badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--success); display: inline-block; }
+
+/* Globe */
+.globe-wrap { flex-shrink: 0; width: 400px; height: 400px; position: relative; }
+.orbit { position: absolute; border: 1.5px dashed rgba(79,106,245,.25); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.orbit-1 { width: 320px; height: 320px; animation: spin 30s linear infinite; }
+.orbit-2 { width: 220px; height: 220px; animation: spin 22s linear infinite reverse; }
+.orbit-3 { width: 130px; height: 130px; animation: spin 16s linear infinite; }
+.dot { position: absolute; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+.dot-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 56px; height: 56px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7px; font-weight: 700; color: #fff; letter-spacing: .5px; animation: pulse 2s ease-in-out infinite; z-index: 2; box-shadow: 0 0 30px rgba(102,126,234,.4); }
+.dot-bg { background: var(--blue-500); top: 0; left: 50%; transform: translate(-50%, -50%); }
+.dot-pl { background: #E53E3E; top: 50%; right: 0; transform: translate(50%, -50%); }
+.dot-lt { background: #38A169; bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+.dot-de { background: #D69E2E; top: 0; left: 50%; transform: translate(-50%, -50%); }
+.dot-ru { background: #805AD5; top: 50%; left: 0; transform: translate(-50%, -50%); }
+.route { position: absolute; top: 50%; left: 50%; width: 1px; height: 140px; background: linear-gradient(to bottom, rgba(79,106,245,.15), transparent); transform-origin: top; }
+@keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 20px rgba(102,126,234,.3); } 50% { box-shadow: 0 0 40px rgba(102,126,234,.6); } }
+
+/* Directions */
+.directions { padding: 80px 0; background: var(--bg-soft); }
+.directions .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.section-title { text-align: center; font-size: 34px; margin-bottom: 14px; }
+.section-sub { text-align: center; font-size: 16px; color: var(--text-body); margin-bottom: 48px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.card { background: #fff; border-radius: 16px; padding: 36px 28px 32px; border-top: 4px solid transparent; border-image: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) 1; transition: transform .3s, box-shadow .3s; cursor: pointer; text-decoration: none; display: block; }
+.card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(79,106,245,.12); }
+.card-illust { height: 80px; margin-bottom: 20px; position: relative; }
+/* Container illust */
+.container-box { width: 70px; height: 44px; background: var(--blue-500); transform: skewX(-8deg); border-radius: 4px; position: absolute; top: 18px; left: 20px; }
+.container-box::before { content: ''; position: absolute; top: -14px; left: 4px; width: 62px; height: 14px; background: var(--blue-600); transform: skewY(-6deg); border-radius: 2px 2px 0 0; }
+.container-box::after { content: ''; position: absolute; top: 0; right: -18px; width: 18px; height: 44px; background: var(--blue-700); transform: skewY(8deg); border-radius: 0 4px 4px 0; }
+.container-stripe { position: absolute; top: 26px; left: 28px; width: 54px; height: 3px; background: rgba(255,255,255,.4); }
+.container-stripe::after { content: ''; position: absolute; top: 8px; left: 0; width: 54px; height: 3px; background: rgba(255,255,255,.25); }
+/* Warehouse illust */
+.wh { position: absolute; bottom: 0; background: var(--blue-100); border-radius: 4px 4px 0 0; }
+.wh-1 { left: 10px; width: 40px; height: 50px; background: var(--blue-500); }
+.wh-2 { left: 56px; width: 36px; height: 40px; background: var(--gradient-start); }
+.wh-3 { left: 98px; width: 32px; height: 34px; background: var(--blue-600); }
+.wh::after { content: ''; position: absolute; top: -10px; left: -4px; right: -4px; height: 14px; background: inherit; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); filter: brightness(0.85); }
+.wh-door { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 12px; height: 16px; background: rgba(255,255,255,.5); border-radius: 2px 2px 0 0; }
+/* Laptop illust */
+.laptop-base { position: absolute; bottom: 8px; left: 16px; width: 80px; height: 6px; background: var(--blue-600); border-radius: 0 0 6px 6px; }
+.laptop-screen { position: absolute; bottom: 14px; left: 22px; width: 68px; height: 48px; background: var(--text-dark); border-radius: 6px 6px 0 0; border: 3px solid var(--blue-600); display: flex; align-items: center; justify-content: center; }
+.laptop-code { font-family: monospace; color: var(--success); font-size: 16px; font-weight: 700; }
+.card h3 { font-size: 20px; margin-bottom: 10px; }
+.card p { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.card-link { font-size: 14px; font-weight: 600; color: var(--blue-500); transition: gap .2s; display: inline-flex; align-items: center; gap: 4px; }
+.card:hover .card-link { gap: 10px; }
+
+/* Stats */
+.stats { padding: 64px 0; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); position: relative; overflow: hidden; }
+.stats::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,.03) 40px, rgba(255,255,255,.03) 80px); animation: stripes 8s linear infinite; }
+@keyframes stripes { to { background-position: 80px 80px; } }
+.bokeh { position: absolute; border-radius: 50%; background: rgba(255,255,255,.06); animation: floatUp 10s linear infinite; }
+.stats .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 1; }
+.stat { text-align: center; color: #fff; }
+.stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; }
+.stat-label { font-size: 14px; opacity: .85; margin-top: 4px; }
+@keyframes floatUp { 0% { transform: translateY(100px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-120px); opacity: 0; } }
+
+/* Steps */
+.steps { padding: 80px 0; background: #fff; }
+.steps .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.steps-row { display: flex; align-items: flex-start; justify-content: space-between; position: relative; margin-top: 48px; }
+.steps-row::before { content: ''; position: absolute; top: 28px; left: 60px; right: 60px; height: 2px; background: var(--blue-100); }
+.travel-dot { position: absolute; top: 24px; left: 60px; width: 10px; height: 10px; border-radius: 50%; background: var(--blue-500); animation: travel 4s ease-in-out infinite; box-shadow: 0 0 10px rgba(79,106,245,.5); }
+@keyframes travel { 0%,100% { left: 60px; } 50% { left: calc(100% - 70px); } }
+.step { text-align: center; flex: 1; position: relative; z-index: 1; }
+.step-circle { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.step h4 { font-size: 16px; margin-bottom: 6px; }
+.step p { font-size: 13px; max-width: 160px; margin: 0 auto; }
+
+/* Quote */
+.quote-section { padding: 64px 0; background: var(--bg-soft); }
+.quote-section .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; text-align: center; }
+.quote-text { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 500; color: var(--text-dark); line-height: 1.5; font-style: italic; margin-bottom: 20px; }
+.quote-text::before { content: '\201C'; font-size: 60px; color: var(--blue-500); line-height: 0; vertical-align: -18px; margin-right: 4px; }
+.quote-sub { font-size: 14px; color: var(--text-body); }
+
+/* CTA */
+.cta-section { padding: 72px 0; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); text-align: center; position: relative; overflow: hidden; }
+.cta-section .wrap { max-width: 700px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.cta-section h2 { color: #fff; font-size: 32px; margin-bottom: 12px; }
+.cta-section p { color: rgba(255,255,255,.85); font-size: 16px; margin-bottom: 32px; }
+.cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.cta-wa { background: #25D366; color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; transition: transform .2s; }
+.cta-tg { background: #0088cc; color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; transition: transform .2s; }
+.cta-email { background: transparent; color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 2px solid rgba(255,255,255,.5); transition: background .2s; }
+.cta-wa:hover, .cta-tg:hover { transform: translateY(-2px); }
+.cta-email:hover { background: rgba(255,255,255,.15); }
+.cta-phone { color: rgba(255,255,255,.9); font-size: 18px; font-weight: 600; }
+
+/* Footer */
+footer { background: var(--text-dark); color: rgba(255,255,255,.6); padding: 40px 0 28px; }
+footer .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+footer .f-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #fff; }
+footer nav { display: flex; gap: 24px; }
+footer nav a { font-size: 13px; transition: color .2s; }
+footer nav a:hover { color: #fff; }
+footer .f-legal { font-size: 12px; width: 100%; text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero .wrap { flex-direction: column; gap: 32px; }
+  .hero-text h1 { font-size: 30px; }
+  .globe-wrap { width: 280px; height: 280px; margin: 0 auto; }
+  .orbit-1 { width: 240px; height: 240px; }
+  .orbit-2 { width: 170px; height: 170px; }
+  .orbit-3 { width: 100px; height: 100px; }
+  .dot-center { width: 44px; height: 44px; font-size: 6px; }
+  .dot { width: 26px; height: 26px; font-size: 8px; }
+  .cards { grid-template-columns: 1fr; }
+  .stats .wrap { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .stat-num { font-size: 34px; }
+  .steps-row { flex-direction: column; align-items: center; gap: 32px; }
+  .steps-row::before, .travel-dot { display: none; }
+  .section-title { font-size: 26px; }
+  .header nav { display: none; }
+  .quote-text { font-size: 20px; }
+  .cta-section h2 { font-size: 24px; }
+  .badges { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="/" class="logo"><img src="img/logo.png" alt="EUROSFERA">Eurosfera</a>
+    <nav>
+      <a href="#directions">Направления</a>
+      <a href="#how">Как работаем</a>
+      <a href="#cta">Контакты</a>
+    </nav>
+    <a href="#cta" class="cta-sm">Оставить заявку</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>Ваше представительство<br>в <span>Евросоюзе</span></h1>
+      <p>Закупаем товары, оплачиваем инвойсы, храним на складах ЕС и доставляем — легально, в евро, от вашего имени.</p>
+      <div class="hero-btns">
+        <a href="#cta" class="btn-primary">Начать работу</a>
+        <a href="#directions" class="btn-outline">Направления</a>
+      </div>
+      <div class="badges">
+        <div class="badge"><i></i> EU-юрлицо</div>
+        <div class="badge"><i></i> EUR-счёт</div>
+        <div class="badge"><i></i> 3 склада в ЕС</div>
+      </div>
+    </div>
+    <div class="globe-wrap">
+      <div class="dot-center">EURO<br>SFERA</div>
+      <div class="route" style="transform:rotate(0deg)"></div>
+      <div class="route" style="transform:rotate(72deg)"></div>
+      <div class="route" style="transform:rotate(144deg)"></div>
+      <div class="route" style="transform:rotate(216deg)"></div>
+      <div class="route" style="transform:rotate(288deg)"></div>
+      <div class="orbit orbit-1">
+        <div class="dot dot-bg">BG</div>
+        <div class="dot dot-pl">PL</div>
+      </div>
+      <div class="orbit orbit-2">
+        <div class="dot dot-de">DE</div>
+        <div class="dot dot-lt">LT</div>
+      </div>
+      <div class="orbit orbit-3">
+        <div class="dot dot-ru">RU</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Directions -->
+<section class="directions" id="directions">
+  <div class="wrap">
+    <h2 class="section-title reveal">Три направления работы</h2>
+    <p class="section-sub reveal">Выберите задачу — мы подберём решение</p>
+    <div class="cards">
+      <a href="goods.html" class="card reveal">
+        <div class="card-illust">
+          <div class="container-box"><div class="container-stripe"></div></div>
+        </div>
+        <h3>Товары и закупки</h3>
+        <p>Поиск поставщиков в ЕС, закупка от нашего юрлица, оплата в евро, доставка до вас.</p>
+        <span class="card-link">Подробнее →</span>
+      </a>
+      <a href="logistics.html" class="card reveal">
+        <div class="card-illust">
+          <div class="wh wh-1"><div class="wh-door"></div></div>
+          <div class="wh wh-2"><div class="wh-door"></div></div>
+          <div class="wh wh-3"><div class="wh-door"></div></div>
+        </div>
+        <h3>Логистика и склады</h3>
+        <p>3 склада в Болгарии, Польше и Литве. Приёмка, хранение, консолидация, отправка.</p>
+        <span class="card-link">Подробнее →</span>
+      </a>
+      <a href="it.html" class="card reveal">
+        <div class="card-illust">
+          <div class="laptop-base"></div>
+          <div class="laptop-screen"><span class="laptop-code">&lt;/&gt;</span></div>
+        </div>
+        <h3>IT и EU-компания</h3>
+        <p>Регистрация фирмы в Болгарии, EU-счета, EORI, VAT — всё под ключ за 5 000 €.</p>
+        <span class="card-link">Подробнее →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="bokeh" style="width:80px;height:80px;left:10%;bottom:-20px;animation-delay:0s"></div>
+  <div class="bokeh" style="width:50px;height:50px;left:30%;bottom:-20px;animation-delay:2s"></div>
+  <div class="bokeh" style="width:60px;height:60px;left:55%;bottom:-20px;animation-delay:4s"></div>
+  <div class="bokeh" style="width:40px;height:40px;left:75%;bottom:-20px;animation-delay:6s"></div>
+  <div class="bokeh" style="width:70px;height:70px;left:90%;bottom:-20px;animation-delay:1s"></div>
+  <div class="wrap">
+    <div class="stat reveal"><div class="stat-num" data-target="3">0</div><div class="stat-label">склада в ЕС</div></div>
+    <div class="stat reveal"><div class="stat-num" data-target="15" data-suffix="+">0</div><div class="stat-label">стран-поставщиков</div></div>
+    <div class="stat reveal"><div class="stat-num" data-prefix="€" data-target="5" data-suffix="K">0</div><div class="stat-label">регистрация EU-компании</div></div>
+    <div class="stat reveal"><div class="stat-num" data-target="1">0</div><div class="stat-label">день — оплата инвойса</div></div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="steps" id="how">
+  <div class="wrap">
+    <h2 class="section-title reveal">Как это работает</h2>
+    <p class="section-sub reveal">От заявки до доставки — 4 простых шага</p>
+    <div class="steps-row reveal">
+      <div class="travel-dot"></div>
+      <div class="step">
+        <div class="step-circle">1</div>
+        <h4>Заявка</h4>
+        <p>Опишите что нужно — товар, услуга, регистрация</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <h4>Расчёт</h4>
+        <p>Мы считаем стоимость, логистику, сроки</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <h4>Закупка</h4>
+        <p>Оплачиваем от EU-юрлица, принимаем на склад</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">4</div>
+        <h4>Доставка</h4>
+        <p>Отправляем вам — авто, авиа или море</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+  <div class="wrap reveal">
+    <div class="quote-text">Мы — ваш офис в Европе. Закупаем, оплачиваем, доставляем.</div>
+    <div class="quote-sub">EUROSFERA LTD · EIK 207067847 · VAT BG207067847 · София, Болгария</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="wrap reveal">
+    <h2>Начнём работу?</h2>
+    <p>Напишите нам — ответим в течение часа</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/359892098460" class="cta-wa">WhatsApp</a>
+      <a href="https://t.me/eurosfera" class="cta-tg">Telegram</a>
+      <a href="mailto:logist@euro-s.bg" class="cta-email">Email</a>
+    </div>
+    <div class="cta-phone">+359 89 209 84 60</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="f-logo">Eurosfera</div>
+    <nav>
+      <a href="goods.html">Товары</a>
+      <a href="logistics.html">Логистика</a>
+      <a href="it.html">IT и компания</a>
+      <a href="mailto:logist@euro-s.bg">Контакт</a>
+    </nav>
+    <div class="f-legal">© 2026 EUROSFERA LTD · EIK 207067847 · logist@euro-s.bg</div>
+  </div>
+</footer>
+
+<script>
+// Sticky header
+const hdr = document.getElementById('header');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Animated counters
+let counted = false;
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('.stat-num').forEach(el => {
+        const target = +el.dataset.target, prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '';
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 30));
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = prefix + current + suffix;
+        }, 40);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.stats').forEach(el => cObs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUROSFERA LTD — Ваши руки в Европе</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FFFFFF;
+  --off-white: #FAFBFC;
+  --dark: #111827;
+  --accent: #0066FF;
+  --accent-soft: #EBF5FF;
+  --text: #1F2937;
+  --text-light: #6B7280;
+  --gold: #B8860B;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+/* Reveal animation */
+.reveal { opacity:1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Header */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E5E7EB;
+  padding: 0 24px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 100%;
+}
+.header-logo { display: flex; align-items: center; gap: 10px; }
+.header-logo img { height: 32px; }
+.header-logo span { font-weight: 700; font-size: 16px; letter-spacing: 1px; color: var(--dark); }
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.header-nav a { font-size: 14px; font-weight: 500; color: var(--text-light); transition: color 0.2s; }
+.header-nav a:hover { color: var(--text); }
+.btn-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--white);
+  font-size: 14px; font-weight: 600;
+  padding: 10px 24px; border-radius: 6px; border: none; cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-cta:hover { background: #0052CC; box-shadow: 0 4px 16px rgba(0,102,255,0.25); }
+
+/* Hero */
+.hero {
+  position: relative; min-height: 88vh;
+  display: flex; align-items: center;
+  padding: 80px 24px; background: var(--white); overflow: hidden;
+}
+.hero-inner { max-width: 1120px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 40px; }
+.hero-text { flex: 1; z-index: 2; }
+.hero-text h1 {
+  font-family: 'DM Serif Display', serif; font-weight: 400;
+  font-size: clamp(36px, 5.5vw, 64px); line-height: 1.1;
+  color: var(--dark); margin-bottom: 16px;
+}
+.hero-gold { display: block; width: 64px; height: 3px; background: var(--gold); margin-bottom: 24px; border-radius: 2px; }
+.hero-text p { font-size: 18px; line-height: 1.65; color: var(--text-light); max-width: 480px; margin-bottom: 36px; }
+.hero-shape {
+  flex: 0 0 420px; height: 420px; position: relative;
+  background: conic-gradient(from 180deg at 50% 50%, #EBF5FF 0deg, #0066FF 60deg, #99CCFF 120deg, #EBF5FF 180deg, #0052CC 240deg, #B3D9FF 300deg, #EBF5FF 360deg);
+  border-radius: 50%; opacity: 0.18; filter: blur(2px);
+}
+.hero-shape::after {
+  content: ''; position: absolute; inset: 40px;
+  background: conic-gradient(from 0deg at 50% 50%, #0066FF 0deg, #EBF5FF 90deg, #0052CC 180deg, #B3D9FF 270deg, #0066FF 360deg);
+  border-radius: 50%; opacity: 0.5; filter: blur(6px);
+}
+
+/* Directions */
+.directions { background: var(--off-white); padding: 96px 24px; }
+.section-title {
+  font-family: 'DM Serif Display', serif; font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px); text-align: center;
+  color: var(--dark); margin-bottom: 56px;
+}
+.cards { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.card {
+  background: var(--white); border-radius: 8px; padding: 36px 32px;
+  border-left: 3px solid var(--accent);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-4px); }
+.card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--dark); }
+.card p { font-size: 15px; line-height: 1.6; color: var(--text-light); }
+.card-link { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; color: var(--accent); }
+.card-link:hover { text-decoration: underline; }
+
+/* Banner */
+.banner {
+  background: var(--dark); position: relative; overflow: hidden;
+  padding: 80px 24px 100px; text-align: center;
+}
+.banner-quote {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: clamp(24px, 4vw, 44px); color: var(--white); line-height: 1.3;
+  max-width: 720px; margin: 0 auto; position: relative; z-index: 2;
+}
+.banner-line { display: block; width: 48px; height: 2px; background: var(--gold); margin: 24px auto 0; border-radius: 1px; }
+.banner-city {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+  background: var(--dark); z-index: 1;
+  clip-path: polygon(0% 100%, 0% 65%, 3% 65%, 3% 40%, 5% 40%, 5% 55%, 7% 55%, 7% 30%, 9% 30%, 9% 50%, 11% 50%, 11% 60%, 14% 60%, 14% 20%, 16% 20%, 16% 45%, 18% 45%, 18% 55%, 21% 55%, 21% 35%, 23% 35%, 23% 50%, 26% 50%, 26% 70%, 30% 70%, 30% 25%, 32% 25%, 32% 60%, 35% 60%, 35% 45%, 38% 45%, 38% 55%, 42% 55%, 42% 30%, 44% 30%, 44% 65%, 48% 65%, 48% 40%, 50% 40%, 50% 15%, 52% 15%, 52% 50%, 55% 50%, 55% 60%, 58% 60%, 58% 35%, 60% 35%, 60% 55%, 63% 55%, 63% 45%, 66% 45%, 66% 25%, 68% 25%, 68% 55%, 72% 55%, 72% 65%, 75% 65%, 75% 40%, 78% 40%, 78% 50%, 82% 50%, 82% 30%, 84% 30%, 84% 60%, 88% 60%, 88% 45%, 90% 45%, 90% 55%, 93% 55%, 93% 35%, 95% 35%, 95% 60%, 97% 60%, 97% 50%, 100% 50%, 100% 100%);
+  opacity: 0.12;
+}
+
+/* Why Us */
+.why-us { background: var(--white); padding: 96px 24px; }
+.why-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 56px; }
+.why-item { display: flex; gap: 20px; }
+.why-num {
+  font-family: 'DM Serif Display', serif; font-size: 48px;
+  color: var(--accent); opacity: 0.35; line-height: 1; flex-shrink: 0; min-width: 56px;
+}
+.why-item h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.why-item p { font-size: 15px; line-height: 1.6; color: var(--text-light); }
+
+/* CTA */
+.cta-section { background: var(--off-white); padding: 80px 24px; text-align: center; }
+.cta-section h2 {
+  font-family: 'DM Serif Display', serif; font-weight: 400;
+  font-size: clamp(26px, 3.5vw, 38px); color: var(--dark); margin-bottom: 16px;
+}
+.cta-section p { font-size: 16px; color: var(--text-light); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.btn-cta-lg {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--white);
+  font-size: 16px; font-weight: 600;
+  padding: 16px 40px; border-radius: 8px; border: none; cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.btn-cta-lg:hover { background: #0052CC; box-shadow: 0 6px 24px rgba(0,102,255,0.3); transform: translateY(-2px); }
+
+/* Footer */
+.footer {
+  background: var(--dark); color: #9CA3AF; padding: 48px 24px;
+  text-align: center; font-size: 14px; line-height: 1.8;
+}
+.footer a { color: #D1D5DB; transition: color 0.2s; }
+.footer a:hover { color: var(--white); }
+.footer-brand { font-weight: 700; color: var(--white); font-size: 15px; letter-spacing: 1px; margin-bottom: 12px; }
+.footer-sep { width: 40px; height: 1px; background: #374151; margin: 16px auto; }
+
+/* Mobile */
+@media (max-width: 1024px) {
+  .hero-shape { flex: 0 0 300px; height: 300px; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .header-nav a:not(.btn-cta) { display: none; }
+  .hero-inner { flex-direction: column; text-align: center; }
+  .hero-text p { margin-left: auto; margin-right: auto; }
+  .hero-gold { margin-left: auto; margin-right: auto; }
+  .hero-shape { flex: none; width: 240px; height: 240px; margin-top: 16px; }
+  .cards { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 480px) {
+  .hero { min-height: 70vh; padding: 60px 16px; }
+  .directions, .why-us { padding: 64px 16px; }
+  .card { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-logo">
+    <img src="img/logo.png" alt="Eurosfera">
+    <span>EUROSFERA</span>
+  </div>
+  <nav class="header-nav">
+    <a href="#directions">Направления</a>
+    <a href="#why">Почему мы</a>
+    <a href="#contact" class="btn-cta">Связаться</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text reveal">
+      <h1>Ваши руки<br>в Европе</h1>
+      <span class="hero-gold"></span>
+      <p>Болгарская компания в ЕС. Помогаем бизнесу из России и СНГ работать с европейским рынком — товары, логистика, IT-лицензии.</p>
+      <a href="#contact" class="btn-cta">Обсудить задачу</a>
+    </div>
+    <div class="hero-shape reveal"></div>
+  </div>
+</section>
+
+<!-- Directions -->
+<section class="directions" id="directions">
+  <h2 class="section-title reveal">Направления работы</h2>
+  <div class="cards">
+    <div class="card reveal">
+      <h3>Товары и поставки</h3>
+      <p>Закупка в ЕС, сертификация, таможенное оформление. Работаем с производителями напрямую — без лишних посредников.</p>
+      <a href="goods.html" class="card-link">Подробнее &rarr;</a>
+    </div>
+    <div class="card reveal">
+      <h3>Логистика</h3>
+      <p>Доставка из Европы в Россию и СНГ. Консолидация, складское хранение в Болгарии, мультимодальные маршруты.</p>
+      <a href="logistics.html" class="card-link">Подробнее &rarr;</a>
+    </div>
+    <div class="card reveal">
+      <h3>IT и лицензии ПО</h3>
+      <p>Покупка лицензий на европейское юрлицо. Microsoft, Adobe, SAP и другие вендоры — через нас легально и выгодно.</p>
+      <a href="it.html" class="card-link">Подробнее &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Banner -->
+<section class="banner">
+  <p class="banner-quote reveal">&laquo;Мы — ваш офис в Европе&raquo;</p>
+  <span class="banner-line"></span>
+  <div class="banner-city"></div>
+</section>
+
+<!-- Why Us -->
+<section class="why-us" id="why">
+  <h2 class="section-title reveal">Почему Eurosfera</h2>
+  <div class="why-grid">
+    <div class="why-item reveal">
+      <span class="why-num">01</span>
+      <div>
+        <h3>Юрлицо в ЕС</h3>
+        <p>Зарегистрированная болгарская компания. Все операции — от лица европейского контрагента с полным документооборотом.</p>
+      </div>
+    </div>
+    <div class="why-item reveal">
+      <span class="why-num">02</span>
+      <div>
+        <h3>Прозрачные условия</h3>
+        <p>Фиксированные комиссии, понятные сроки, отчётность на каждом этапе. Никаких скрытых платежей.</p>
+      </div>
+    </div>
+    <div class="why-item reveal">
+      <span class="why-num">03</span>
+      <div>
+        <h3>Опыт с СНГ</h3>
+        <p>Понимаем специфику работы с российским и постсоветским бизнесом. Говорим на одном языке — буквально и фигурально.</p>
+      </div>
+    </div>
+    <div class="why-item reveal">
+      <span class="why-num">04</span>
+      <div>
+        <h3>Комплексный подход</h3>
+        <p>Товары, логистика, IT — всё через одну компанию. Один контакт, один договор, минимум бюрократии.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="reveal">
+    <h2>Готовы начать?</h2>
+    <p>Напишите нам — обсудим вашу задачу и предложим решение в течение 24 часов.</p>
+    <a href="mailto:logist@euro.s.bg" class="btn-cta-lg">logist@euro.s.bg</a>
+    <p style="margin-top:16px; font-size:15px; color:var(--text-light);">
+      или позвоните: <a href="tel:+359892098460" style="color:var(--accent); font-weight:600;">+359 89 209 84 60</a>
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-brand">EUROSFERA LTD</div>
+  <div class="footer-sep"></div>
+  <p>Болгария, ЕС<br>
+    <a href="mailto:logist@euro.s.bg">logist@euro.s.bg</a> &middot;
+    <a href="tel:+359892098460">+359 89 209 84 60</a>
+  </p>
+  <p style="margin-top:16px; opacity:0.5;">&copy; 2026 Eurosfera LTD. Все права защищены.</p>
+</footer>
+
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

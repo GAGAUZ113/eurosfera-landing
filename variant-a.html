@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUROSFERA — Ваше представительство в Евросоюзе</title>
+<meta name="description" content="Евросфера — закупка товаров, платежи в EUR, лицензии на ПО, логистика из ЕС для бизнеса из России и СНГ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#0B1D3A;--darker:#06101F;--white:#FFFFFF;--gray-400:#94A3B8;--gray-600:#475569;--accent:#2563EB;--accent-dark:#1D4ED8;--gold:rgba(212,175,55,.15)}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--white);background:var(--dark);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* REVEAL */
+.reveal{opacity:1;transform:translateY(0);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.revealed{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
+.reveal-delay-3{transition-delay:.45s}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .4s}
+.header.scrolled{background:rgba(6,16,31,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 0;box-shadow:0 1px 40px rgba(0,0,0,.3)}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:36px;width:auto}
+.logo span{font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:3px;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:36px}
+.nav a{color:rgba(255,255,255,.6);font-size:.85rem;font-weight:500;transition:color .3s;letter-spacing:.5px;text-transform:uppercase}
+.nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 28px;border-radius:6px;font-size:.875rem;font-weight:600;transition:all .3s;border:none;cursor:pointer;letter-spacing:.3px}
+.btn-accent{background:var(--accent);color:var(--white);box-shadow:0 4px 24px rgba(37,99,235,.3)}
+.btn-accent:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,99,235,.4)}
+.btn-outline{border:1.5px solid rgba(255,255,255,.2);color:var(--white);background:transparent}
+.btn-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--darker);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);font-size:1.25rem;font-weight:500}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer}
+.mobile-close svg{width:28px;height:28px;stroke:var(--white);stroke-width:2}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:120px 24px 80px;background:var(--dark)}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 20% 40%,rgba(37,99,235,.14) 0%,transparent 60%),
+  radial-gradient(ellipse 60% 80% at 80% 60%,rgba(99,102,241,.1) 0%,transparent 50%),
+  radial-gradient(ellipse 40% 40% at 50% 80%,rgba(14,165,233,.06) 0%,transparent 50%)}
+/* Animated diagonal route lines */
+.hero-lines{position:absolute;inset:-50%;width:200%;height:200%;background:repeating-linear-gradient(
+  -45deg,transparent,transparent 80px,rgba(255,255,255,.015) 80px,rgba(255,255,255,.015) 81px);
+  animation:linesDrift 25s linear infinite}
+@keyframes linesDrift{0%{transform:translate(0,0)}100%{transform:translate(113px,113px)}}
+/* Globe / network pattern */
+.hero-globe{position:absolute;width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%,transparent 48%,rgba(37,99,235,.06) 49%,rgba(37,99,235,.06) 50%,transparent 51%),
+    radial-gradient(circle at 50% 50%,transparent 33%,rgba(37,99,235,.04) 33.5%,rgba(37,99,235,.04) 34.5%,transparent 35%),
+    radial-gradient(circle at 50% 50%,transparent 18%,rgba(37,99,235,.03) 18.5%,rgba(37,99,235,.03) 19.5%,transparent 20%);
+  animation:globePulse 8s ease-in-out infinite alternate;opacity:.7}
+.hero-globe::before{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid rgba(37,99,235,.08);
+  background:radial-gradient(ellipse 100% 50% at 50% 50%,transparent 48%,rgba(37,99,235,.05) 49%,rgba(37,99,235,.05) 50%,transparent 51%)}
+.hero-globe::after{content:'';position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(ellipse 50% 100% at 50% 50%,transparent 48%,rgba(37,99,235,.04) 49%,rgba(37,99,235,.04) 50%,transparent 51%)}
+@keyframes globePulse{0%{transform:translate(-50%,-50%) scale(1);opacity:.5}100%{transform:translate(-50%,-50%) scale(1.08);opacity:.8}}
+/* Dot grid */
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;animation:dotsDrift 30s linear infinite}
+@keyframes dotsDrift{0%{transform:translate(0,0)}100%{transform:translate(48px,48px)}}
+.hero-content{position:relative;text-align:center;max-width:860px;z-index:2}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:28px;letter-spacing:-.5px}
+.hero h1 em{font-family:'Inter',sans-serif;font-style:normal;font-weight:400;font-size:.85em;color:rgba(255,255,255,.7)}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--gray-400);margin-bottom:44px;letter-spacing:.5px}
+.hero .btn{font-size:1rem;padding:16px 40px;border-radius:8px}
+.trust-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;margin-top:72px;padding-top:36px;border-top:1px solid rgba(255,255,255,.06)}
+.trust-badges span{color:rgba(255,255,255,.35);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+
+/* ===== DIRECTIONS ===== */
+.directions{padding:140px 0;position:relative;background:var(--darker)}
+.directions::before{content:'';position:absolute;top:0;left:0;right:0;height:200px;background:linear-gradient(to bottom,var(--dark),var(--darker))}
+.section-title{text-align:center;margin-bottom:72px;position:relative}
+.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:700;margin-bottom:12px;letter-spacing:-.2px}
+.section-title p{color:var(--gray-400);font-size:1.05rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.card{border-radius:16px;padding:44px 36px;border:1px solid rgba(255,255,255,.06);transition:all .5s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;position:relative;overflow:hidden;min-height:320px}
+.card::before{content:'';position:absolute;inset:0;opacity:.6;transition:opacity .5s;z-index:0}
+.card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.12)}
+.card:hover::before{opacity:1}
+/* Card 1 — Goods: blue→teal + box pattern */
+.card-goods::before{background:linear-gradient(135deg,#0B1D3A 0%,#0D2847 40%,#0F3D5C 100%)}
+.card-goods::after{content:'';position:absolute;inset:0;opacity:.15;background:
+  repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(14,165,233,.15) 40px,rgba(14,165,233,.15) 41px),
+  repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(14,165,233,.15) 40px,rgba(14,165,233,.15) 41px)}
+.card-goods:hover::after{opacity:.25}
+/* Card 2 — Logistics: dark blue→indigo + route lines */
+.card-logistics::before{background:linear-gradient(135deg,#0B1D3A 0%,#1A1547 40%,#2D1B69 100%)}
+.card-logistics::after{content:'';position:absolute;inset:0;opacity:.12;background:
+  repeating-linear-gradient(30deg,transparent,transparent 60px,rgba(139,92,246,.2) 60px,rgba(139,92,246,.2) 61px),
+  repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(139,92,246,.1) 80px,rgba(139,92,246,.1) 81px)}
+.card-logistics:hover::after{opacity:.22}
+/* Card 3 — IT: dark purple→blue + circuit pattern */
+.card-it::before{background:linear-gradient(135deg,#12082A 0%,#1A1050 40%,#0F2167 100%)}
+.card-it::after{content:'';position:absolute;inset:0;opacity:.2;
+  background-image:radial-gradient(rgba(139,92,246,.3) 1.5px,transparent 1.5px);background-size:24px 24px;
+  mask-image:linear-gradient(135deg,black 0%,transparent 60%);-webkit-mask-image:linear-gradient(135deg,black 0%,transparent 60%)}
+.card-it:hover::after{opacity:.35}
+.card>*{position:relative;z-index:1}
+.card-icon{width:56px;height:56px;border-radius:12px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;margin-bottom:28px;backdrop-filter:blur(8px)}
+.card-icon svg{width:26px;height:26px;stroke:var(--white);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.card h3{font-size:1.3rem;font-weight:700;margin-bottom:14px}
+.card p{color:rgba(255,255,255,.55);font-size:.95rem;line-height:1.7;flex:1;margin-bottom:28px}
+.card-link{display:inline-flex;align-items:center;gap:8px;color:var(--white);font-size:.9rem;font-weight:600;transition:gap .3s,opacity .3s;opacity:.7}
+.card-link:hover{gap:14px;opacity:1}
+
+/* ===== WHY US ===== */
+.why{padding:140px 0;position:relative;overflow:hidden;background:var(--dark)}
+/* EU stars background */
+.why-stars{position:absolute;width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);animation:starsRotate 120s linear infinite;opacity:.06}
+@keyframes starsRotate{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:72px;position:relative}
+.feature{text-align:center;padding:40px 20px;border-radius:16px;border:1px solid rgba(255,255,255,.04);transition:all .4s;background:rgba(255,255,255,.02)}
+.feature:hover{border-color:rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+.feature-icon{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#6366F1);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 8px 32px rgba(37,99,235,.25)}
+.feature-icon svg{width:26px;height:26px;stroke:var(--white);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.feature h4{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.feature p{color:rgba(255,255,255,.45);font-size:.85rem;line-height:1.65}
+
+/* ===== CTA ===== */
+.cta{padding:120px 0;position:relative;overflow:hidden;text-align:center;background:var(--darker)}
+/* Northern lights effect */
+.cta-aurora{position:absolute;inset:0;overflow:hidden}
+.cta-aurora span{position:absolute;width:200%;height:300px;left:-50%;border-radius:50%;filter:blur(80px);opacity:.12;animation:aurora 12s ease-in-out infinite alternate}
+.cta-aurora span:nth-child(1){top:-100px;background:linear-gradient(90deg,#2563EB,#06B6D4,#8B5CF6);animation-duration:12s}
+.cta-aurora span:nth-child(2){top:40%;background:linear-gradient(90deg,#8B5CF6,#2563EB,#0EA5E9);animation-duration:16s;animation-delay:-4s}
+.cta-aurora span:nth-child(3){bottom:-80px;background:linear-gradient(90deg,#06B6D4,#8B5CF6,#2563EB);animation-duration:10s;animation-delay:-7s}
+@keyframes aurora{0%{transform:translateX(-20%) scaleY(1)}50%{transform:translateX(10%) scaleY(1.5)}100%{transform:translateX(-10%) scaleY(.8)}}
+.cta>div{position:relative;z-index:1}
+.cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:16px}
+.cta>div>p{color:var(--gray-400);margin-bottom:44px;font-size:1.1rem}
+.cta-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:36px}
+.cta-buttons .btn{gap:10px;min-width:160px}
+.cta-buttons .btn svg{width:18px;height:18px;fill:currentColor}
+.cta-phone{color:var(--gray-400);font-size:.95rem}
+.cta-phone a{color:var(--white);font-weight:600;transition:opacity .3s}
+.cta-phone a:hover{opacity:.8}
+
+/* FOOTER */
+.footer{padding:52px 0;background:var(--darker);text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:20px}
+.footer-logo{display:flex;align-items:center;gap:10px}
+.footer-logo img{height:28px}
+.footer-logo span{font-size:.95rem;font-weight:600;color:var(--white);letter-spacing:2px}
+.footer-meta{color:rgba(255,255,255,.3);font-size:.8rem;line-height:1.7}
+.footer-nav{display:flex;gap:28px}
+.footer-nav a{color:rgba(255,255,255,.35);font-size:.8rem;transition:color .3s}
+.footer-nav a:hover{color:var(--white)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .cards{grid-template-columns:1fr 1fr;gap:20px}
+  .features{grid-template-columns:1fr 1fr;gap:24px}
+  .hero-globe{width:500px;height:500px}
+}
+@media(max-width:768px){
+  .nav{display:none}
+  .burger{display:flex}
+  .cards{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr 1fr}
+  .hero{min-height:90vh;padding:100px 20px 60px}
+  .trust-badges{flex-direction:column;align-items:center;gap:14px}
+  .directions,.why{padding:88px 0}
+  .cta{padding:80px 0}
+  .hero-globe{width:350px;height:350px}
+}
+@media(max-width:480px){
+  .features{grid-template-columns:1fr}
+  .card{padding:36px 28px;min-height:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="img/logo.png" alt="Eurosfera">
+      <span>Eurosfera</span>
+    </a>
+    <nav class="nav">
+      <a href="#directions">Направления</a>
+      <a href="#why">О нас</a>
+      <a href="#contact">Контакты</a>
+      <a href="#contact" class="btn btn-accent">Обсудить задачу</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="#directions" class="mobile-link">Направления</a>
+  <a href="#why" class="mobile-link">О нас</a>
+  <a href="#contact" class="mobile-link">Контакты</a>
+  <a href="#contact" class="btn btn-accent">Обсудить задачу</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-globe"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-content">
+    <h1 class="reveal">Ваше представительство<br><em>в Евросоюзе</em></h1>
+    <p class="hero-sub reveal reveal-delay-1">Закупка товаров&ensp;·&ensp;Платежи в EUR&ensp;·&ensp;Лицензии на ПО&ensp;·&ensp;Логистика из ЕС</p>
+    <a href="#directions" class="btn btn-accent reveal reveal-delay-2">Узнать больше</a>
+    <div class="trust-badges reveal reveal-delay-3">
+      <span>EU-юрлицо</span>
+      <span>EUR-счёт</span>
+      <span>Склады в 3 странах</span>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTIONS -->
+<section class="directions" id="directions">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Три направления — одна компания</h2>
+    </div>
+    <div class="cards">
+      <div class="card card-goods reveal reveal-delay-1">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h3>Товары и оборудование</h3>
+        <p>Закупка у EU-поставщиков, оплата инвойсов, консолидация и экспорт в&nbsp;Россию и&nbsp;СНГ.</p>
+        <a href="goods.html" class="card-link">Подробнее <span>&rarr;</span></a>
+      </div>
+      <div class="card card-logistics reveal reveal-delay-2">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Логистика</h3>
+        <p>Склады в&nbsp;Болгарии, Польше, Литве. Таможенное оформление, консолидация, доставка.</p>
+        <a href="logistics.html" class="card-link">Подробнее <span>&rarr;</span></a>
+      </div>
+      <div class="card card-it reveal reveal-delay-3">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>IT и лицензии ПО</h3>
+        <p>Легальный доступ к&nbsp;западному ПО через EU-юрлицо. SAP, Oracle, Autodesk, JetBrains.</p>
+        <a href="it.html" class="card-link">Подробнее <span>&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <!-- EU Stars ring — 12 stars in CSS -->
+  <div class="why-stars" id="euStars"></div>
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Почему Eurosfera</h2>
+    </div>
+    <div class="features">
+      <div class="feature reveal reveal-delay-1">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>EU-юрлицо</h4>
+        <p>Болгарская компания<br>ЕИК 207067847</p>
+      </div>
+      <div class="feature reveal reveal-delay-2">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h4>EUR-счёт</h4>
+        <p>Расчёты в евро<br>в европейском банке</p>
+      </div>
+      <div class="feature reveal reveal-delay-3">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>3 склада в ЕС</h4>
+        <p>Болгария, Польша,<br>Литва</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h4>15+ стран</h4>
+        <p>Поставщики по всей<br>Европе</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta" id="contact">
+  <div class="cta-aurora"><span></span><span></span><span></span></div>
+  <div class="container">
+    <h2 class="reveal">Готовы обсудить задачу?</h2>
+    <p class="reveal reveal-delay-1">Напишите нам — ответим в течение часа</p>
+    <div class="cta-buttons reveal reveal-delay-2">
+      <a href="https://wa.me/359892098460" target="_blank" class="btn btn-accent">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://t.me/eurosfera" target="_blank" class="btn btn-outline">
+        <svg viewBox="0 0 24 24"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.855.075 1.644.357 1.906.397.368.904.584 1.293.744l.005.002 2.856 1.023a.466.466 0 0 0 .063.166l1.455 3.39a1.078 1.078 0 0 0 .896.637l-.004.007.008.001c.025.003.082.01.163.01a1.07 1.07 0 0 0 .764-.343l1.83-1.95 3.564 2.898c.037.028.078.048.118.073a1.264 1.264 0 0 0 .86.199c.546-.088.882-.473 1.02-.834l3.18-15.065c.127-.593.068-1.2-.375-1.648a1.463 1.463 0 0 0-.895-.378z"/></svg>
+        Telegram
+      </a>
+      <a href="mailto:logist@euro-s.bg" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+    </div>
+    <p class="cta-phone reveal reveal-delay-3"><a href="tel:+359892098460">+359 89 209 84 60</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <img src="img/logo.png" alt="Eurosfera">
+      <span>Eurosfera</span>
+    </div>
+    <div class="footer-nav">
+      <a href="#directions">Направления</a>
+      <a href="#why">О нас</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <div class="footer-meta">
+      EUROSFERA LTD · ЕИК 207067847 · София, Болгария<br>
+      &copy; 2026 Eurosfera. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive: true});
+
+// Mobile menu
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+burgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+
+// EU Stars — 12 stars in a circle (CSS-only via JS generation)
+(function(){
+  const el = document.getElementById('euStars');
+  if (!el) return;
+  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox','0 0 200 200');
+  svg.style.cssText = 'width:100%;height:100%';
+  for (let i = 0; i < 12; i++) {
+    const angle = (i * 30 - 90) * Math.PI / 180;
+    const cx = 100 + 75 * Math.cos(angle);
+    const cy = 100 + 75 * Math.sin(angle);
+    const star = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    const pts = [];
+    for (let j = 0; j < 10; j++) {
+      const a2 = (j * 36 - 90) * Math.PI / 180;
+      const r = j % 2 === 0 ? 8 : 3.5;
+      pts.push((cx + r * Math.cos(a2)).toFixed(1) + ',' + (cy + r * Math.sin(a2)).toFixed(1));
+    }
+    star.setAttribute('points', pts.join(' '));
+    star.setAttribute('fill', '#FFD700');
+    svg.appendChild(star);
+  }
+  el.appendChild(svg);
+})();
+
+// IntersectionObserver for .reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.12, rootMargin: '0px 0px -50px 0px'});
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
