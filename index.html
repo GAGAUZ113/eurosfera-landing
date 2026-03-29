@@ -41,10 +41,11 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
+    <div class="hero-parallax-bg" id="heroParallax"></div>
     <div class="container hero-inner">
       <div class="hero-text">
         <div class="hero-badge">EU-юрлицо в Болгарии &middot; Склады в 3 странах ЕС</div>
-        <h1>Ваши <span>руки в&nbsp;Евросоюзе</span></h1>
+        <h1 id="heroTitle" class="typewriter-cursor" aria-label="Ваши руки в Евросоюзе"></h1>
         <p class="hero-desc">Поставщик не работает с российским юрлицом? Платежи в евро не проходят? Мы — болгарская компания с&nbsp;EUR-счётом и&nbsp;складами в&nbsp;ЕС. Закупаем, оплачиваем, храним и&nbsp;оформляем экспорт.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary btn-lg">Обсудить задачу</a>
@@ -94,7 +95,7 @@
       <h2 class="section-title">Знакомые проблемы?</h2>
       <p class="section-subtitle">Мы слышим это от клиентов каждый день — и у нас есть готовые решения</p>
 
-      <div class="problems-grid">
+      <div class="problems-grid reveal-stagger">
         <div class="problem-card">
           <div class="problem-icon problem-icon-red">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
@@ -182,7 +183,7 @@
       <h2 class="section-title">Полный цикл на EU-стороне</h2>
       <p class="section-subtitle">Товары, платежи, лицензии, логистика, документы — всё через одного партнёра</p>
 
-      <div class="services-grid">
+      <div class="services-grid reveal-stagger">
         <div class="service-card">
           <div class="service-num">01</div>
           <h3>Поиск и закупка товаров</h3>
@@ -301,7 +302,7 @@
       <h2 class="section-title">Типы товаров</h2>
       <p class="section-subtitle">Работаем с широким спектром продукции из Европы</p>
 
-      <div class="goods-grid">
+      <div class="goods-grid reveal-stagger">
         <div class="goods-item">
           <div class="goods-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
@@ -366,7 +367,7 @@
       <h2 class="section-title section-title-light">География присутствия</h2>
       <p class="section-subtitle section-subtitle-light">Три логистических коридора через ЕС</p>
 
-      <div class="geo-grid">
+      <div class="geo-grid reveal-stagger">
         <div class="geo-card">
           <div class="geo-flag">&#127463;&#127468;</div>
           <h3>Болгария</h3>
@@ -420,7 +421,7 @@
       <h2 class="section-title">Почему EUROSFERA</h2>
       <p class="section-subtitle">Мы не посредники — мы ваше представительство в Евросоюзе</p>
 
-      <div class="why-grid">
+      <div class="why-grid reveal-stagger">
         <div class="why-card">
           <div class="why-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -572,7 +573,7 @@
       <h2 class="section-title">Для кого мы работаем</h2>
       <p class="section-subtitle">Два формата сотрудничества</p>
 
-      <div class="forwho-grid">
+      <div class="forwho-grid reveal-stagger">
         <div class="forwho-card">
           <div class="forwho-badge">B2B — Логисты</div>
           <h3>Логистические компании и операторы ВЭД</h3>
@@ -678,7 +679,7 @@
       <h2 class="section-title">Примеры работ</h2>
       <p class="section-subtitle">Реальные задачи, которые мы решаем для клиентов</p>
 
-      <div class="cases-grid">
+      <div class="cases-grid reveal-stagger">
         <div class="case-card">
           <div class="case-header">
             <span class="case-tag">Промышленное оборудование</span>
@@ -896,7 +897,7 @@
 
   <!-- ===== JS ===== -->
   <script>
-    // Mobile menu
+    // ---- Mobile menu ----
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('mainNav').classList.toggle('open');
       this.classList.toggle('active');
@@ -908,7 +909,7 @@
       });
     });
 
-    // Header scroll effect
+    // ---- Header scroll effect ----
     window.addEventListener('scroll', function() {
       var header = document.getElementById('header');
       if (window.scrollY > 50) {
@@ -918,20 +919,17 @@
       }
     });
 
-    // FAQ accordion
+    // ---- FAQ accordion ----
     document.querySelectorAll('.faq-item summary').forEach(function(summary) {
       summary.addEventListener('click', function(e) {
         var parent = this.parentElement;
-        var allDetails = document.querySelectorAll('.faq-item');
-        allDetails.forEach(function(detail) {
-          if (detail !== parent && detail.open) {
-            detail.open = false;
-          }
+        document.querySelectorAll('.faq-item').forEach(function(detail) {
+          if (detail !== parent && detail.open) detail.open = false;
         });
       });
     });
 
-    // Smooth scroll for anchor links
+    // ---- Smooth scroll for anchor links ----
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -944,33 +942,140 @@
       });
     });
 
-    // Animated counters
-    function animateCounters() {
-      document.querySelectorAll('.counter-num').forEach(function(el) {
-        if (el.dataset.animated) return;
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.dataset.animated = 'true';
-          var target = parseInt(el.dataset.target);
-          var suffix = el.dataset.suffix || '';
-          var duration = 2000;
-          var start = 0;
-          var startTime = null;
-          function step(timestamp) {
-            if (!startTime) startTime = timestamp;
-            var progress = Math.min((timestamp - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(eased * target) + suffix;
-            if (progress < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
+    // ---- Typewriter effect for H1 ----
+    (function() {
+      var el = document.getElementById('heroTitle');
+      if (!el) return;
+      var fullText = 'Ваши руки в\u00A0Евросоюзе';
+      var colorStart = 5; // "Ваши " = 5 chars, rest is colored
+      var i = 0;
+      var speed = 65;
+
+      function type() {
+        if (i <= fullText.length) {
+          var before = fullText.substring(0, Math.min(i, colorStart));
+          var after = i > colorStart ? fullText.substring(colorStart, i) : '';
+          el.innerHTML = before + (after ? '<span>' + after + '</span>' : '');
+          i++;
+          setTimeout(type, speed);
+        } else {
+          // Remove cursor after typing done
+          setTimeout(function() {
+            el.classList.remove('typewriter-cursor');
+          }, 1500);
+        }
+      }
+
+      // Start after a small delay for page load
+      setTimeout(type, 400);
+    })();
+
+    // ---- Parallax background in hero ----
+    (function() {
+      var parallaxBg = document.getElementById('heroParallax');
+      if (!parallaxBg) return;
+      var ticking = false;
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollY = window.pageYOffset;
+            if (scrollY < window.innerHeight) {
+              parallaxBg.style.transform = 'translateY(' + (scrollY * 0.3) + 'px)';
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
       });
-    }
-    window.addEventListener('scroll', animateCounters);
-    animateCounters();
+    })();
 
-    // Contact form — send via email
+    // ---- Scroll reveal with IntersectionObserver ----
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    // Cards, items in grids
+    document.querySelectorAll(
+      '.problem-card, .service-card, .why-card, .geo-card, .case-card, .forwho-card, .goods-item, .start-step, .step, .faq-item, .route'
+    ).forEach(function(el) {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
+
+    // Section titles and subtitles
+    document.querySelectorAll('.section-title, .section-subtitle, .hero-badge, .hero-desc, .hero-cta, .hero-stats').forEach(function(el) {
+      el.classList.add('reveal-fade');
+      revealObserver.observe(el);
+    });
+
+    // ---- Counter animation (IntersectionObserver based) ----
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        if (el.dataset.animated) return;
+        el.dataset.animated = 'true';
+        counterObserver.unobserve(el);
+
+        var target = parseInt(el.dataset.target);
+        var suffix = el.dataset.suffix || '';
+        var duration = 1800;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.counter-num').forEach(function(el) {
+      counterObserver.observe(el);
+    });
+
+    // Also animate hero stat numbers
+    var heroStatObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        if (el.dataset.animated) return;
+        el.dataset.animated = 'true';
+        heroStatObserver.unobserve(el);
+
+        var text = el.textContent.trim();
+        var num = parseInt(text);
+        if (isNaN(num)) return; // skip "EU", "1 день" etc.
+
+        var suffix = text.replace(/^\d+/, '');
+        var duration = 1200;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * num) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-num').forEach(function(el) {
+      heroStatObserver.observe(el);
+    });
+
+    // ---- Contact form ----
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var form = this;
@@ -1002,7 +1107,6 @@
 
       btn.textContent = 'Отправлено ✓';
       btn.style.background = '#16a34a';
-
       setTimeout(function() {
         btn.disabled = false;
         btn.textContent = 'Отправить заявку';
@@ -1011,7 +1115,7 @@
       }, 4000);
     });
 
-    // Calculator form
+    // ---- Calculator form ----
     document.getElementById('calcForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var f = this;
@@ -1044,21 +1148,6 @@
         btn.style.background = '';
         f.reset();
       }, 4000);
-    });
-
-    // Scroll reveal animation
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.problem-card, .service-card, .why-card, .geo-card, .case-card, .forwho-card').forEach(function(el) {
-      el.classList.add('reveal');
-      observer.observe(el);
     });
   </script>
 
