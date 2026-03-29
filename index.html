@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EUROSFERA LTD — Ваши руки в Евросоюзе | Закупки и логистика EU↔СНГ</title>
-  <meta name="description" content="EUROSFERA LTD — болгарская компания. Закупки от EU-юрлица, платежи в EUR, склады в Болгарии, Польше, Литве. Легальный импорт через EU-юрлицо.">
+  <title>EUROSFERA LTD — Закупки, платежи и логистика в ЕС для бизнеса из России и СНГ</title>
+  <meta name="description" content="EUROSFERA LTD — ваше представительство в Евросоюзе. Закупка товаров от EU-юрлица, платежи в EUR, склады в Болгарии, Польше, Литве. Оплата инвойсов, экспортная таможня, консолидация грузов.">
+  <meta name="keywords" content="закупка товаров в Европе, параллельный импорт, платежи в EUR, выкуп товаров в ЕС, логистика Европа Россия, склад в Болгарии, экспорт из ЕС, аутсорсинг ВЭД">
+  <meta property="og:title" content="EUROSFERA LTD — Ваши руки в Евросоюзе">
+  <meta property="og:description" content="Закупка товаров, платежи в EUR, склады в 3 странах ЕС. Работаем как ваш офис в Европе.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="stylesheet" href="style.css">
-  <!-- Inline SVG icons as data URIs for zero dependencies -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="site-header">
+  <header class="site-header" id="header">
     <div class="container header-inner">
       <a href="#" class="logo">
         <img src="img/logo.png" alt="EUROSFERA LTD">
@@ -21,11 +28,13 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="header-nav" id="mainNav">
-        <a href="#problems">Проблемы и решения</a>
+        <a href="#problems">Проблемы</a>
         <a href="#services">Услуги</a>
-        <a href="#goods">Товары</a>
+        <a href="#how">Как работаем</a>
+        <a href="#geography">География</a>
         <a href="#why">Преимущества</a>
-        <a href="#contact" class="btn btn-primary btn-sm">Связаться</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary btn-sm">Оставить заявку</a>
       </nav>
     </div>
   </header>
@@ -34,15 +43,46 @@
   <section class="hero" id="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <h1>Ваши <span>руки в Евросоюзе</span></h1>
-        <p>EU-поставщик отказывается работать напрямую? Платежи в евро не проходят? Мы — болгарское юрлицо с&nbsp;складами в&nbsp;3&nbsp;странах&nbsp;ЕС. Закупаем, оплачиваем, храним и&nbsp;оформляем экспорт за&nbsp;вас.</p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="#contact" class="btn btn-primary">Обсудить задачу</a>
-          <a href="#services" class="btn btn-outline">Наши услуги</a>
+        <div class="hero-badge">EU-юрлицо в Болгарии &middot; Склады в 3 странах ЕС</div>
+        <h1>Ваши <span>руки в&nbsp;Евросоюзе</span></h1>
+        <p class="hero-desc">Поставщик не работает с российским юрлицом? Платежи в евро не проходят? Мы — болгарская компания с&nbsp;EUR-счётом и&nbsp;складами в&nbsp;ЕС. Закупаем, оплачиваем, храним и&nbsp;оформляем экспорт.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary btn-lg">Обсудить задачу</a>
+          <a href="#how" class="btn btn-outline btn-lg">Как это работает</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">3</span><span class="stat-label">склада в ЕС</span></div>
+          <div class="stat"><span class="stat-num">4</span><span class="stat-label">валюты расчётов</span></div>
+          <div class="stat"><span class="stat-num">EU</span><span class="stat-label">юрлицо, София</span></div>
         </div>
       </div>
       <div class="hero-visual">
-        <img src="img/logo.png" alt="EUROSFERA LTD">
+        <img src="img/logo.png" alt="EUROSFERA LTD" class="hero-logo">
+        <div class="hero-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z" fill="#f59e0b"/></svg>
+          Зарегистрированная EU-компания
+        </div>
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z" fill="#f59e0b"/></svg>
+          EUR-счёт в EU-банке
+        </div>
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z" fill="#f59e0b"/></svg>
+          Полный пакет документов
+        </div>
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z" fill="#f59e0b"/></svg>
+          Работаем с логистами и напрямую
+        </div>
       </div>
     </div>
   </section>
@@ -51,32 +91,59 @@
   <section class="section section-alt" id="problems">
     <div class="container">
       <h2 class="section-title">Знакомые проблемы?</h2>
-      <p class="section-subtitle">Мы слышим это от клиентов каждый день — и&nbsp;у&nbsp;нас есть готовые решения</p>
+      <p class="section-subtitle">Мы слышим это от клиентов каждый день — и у нас есть готовые решения</p>
 
       <div class="problems-grid">
-        <!-- Card 1 -->
         <div class="problem-card">
-          <div class="icon">&#x1F6AB;</div>
-          <h3>Поставщик отказал</h3>
-          <p>EU-производитель не работает с российским юрлицом напрямую из-за санкционных рисков.</p>
-          <p class="solution" style="margin-top:14px;">&#x2192; Решение:</p>
-          <p>Мы — EU-юрлицо в Болгарии. Поставщик работает с нами, вы получаете товар.</p>
+          <div class="problem-icon problem-icon-red">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <h3 class="problem-title">Поставщик отказал</h3>
+          <p class="problem-desc">EU-производитель не работает с российским юрлицом из-за санкционных рисков. Контракт невозможен.</p>
+          <div class="solution-divider"></div>
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <p class="solution-text">Мы — EU-юрлицо в Болгарии. Поставщик работает с нами напрямую. Вы получаете товар с полным пакетом документов.</p>
         </div>
-        <!-- Card 2 -->
+
         <div class="problem-card">
-          <div class="icon">&#x1F4B3;</div>
-          <h3>Платежи не проходят</h3>
-          <p>Банковские переводы в EUR блокируются или возвращаются. Цепочки посредников удорожают сделку.</p>
-          <p class="solution" style="margin-top:14px;">&#x2192; Решение:</p>
-          <p>Прямые платежи с нашего EUR-счёта в EU-банке. Принимаем оплату в EUR, CNY, USD, RUB.</p>
+          <div class="problem-icon problem-icon-red">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <h3 class="problem-title">Платежи не проходят</h3>
+          <p class="problem-desc">Банковские переводы в EUR блокируются или возвращаются. Цепочки посредников удорожают сделку на 15-30%.</p>
+          <div class="solution-divider"></div>
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <p class="solution-text">Прямые платежи с нашего EUR-счёта в EU-банке. Оплата инвойсов за 1 рабочий день. Принимаем EUR, USD, CNY, RUB.</p>
         </div>
-        <!-- Card 3 -->
+
         <div class="problem-card">
-          <div class="icon">&#x1F4E6;</div>
-          <h3>Нет склада в ЕС</h3>
-          <p>Негде консолидировать грузы от разных поставщиков. Каждая партия едет отдельно — дорого и долго.</p>
-          <p class="solution" style="margin-top:14px;">&#x2192; Решение:</p>
-          <p>Склады в Болгарии, Польше и Литве. Собираем, маркируем, отправляем одной партией.</p>
+          <div class="problem-icon problem-icon-red">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <h3 class="problem-title">Нет склада в ЕС</h3>
+          <p class="problem-desc">Негде консолидировать грузы от разных поставщиков. Каждая партия едет отдельно — дорого и долго.</p>
+          <div class="solution-divider"></div>
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <p class="solution-text">Склады в Болгарии, Польше и Литве — 3 логистических коридора. Собираем, маркируем, отправляем одной партией.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon problem-icon-red">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          </div>
+          <h3 class="problem-title">Экспортная таможня ЕС</h3>
+          <p class="problem-desc">Не знаете как оформить экспорт из ЕС? Санкционные ограничения меняются каждый квартал.</p>
+          <div class="solution-divider"></div>
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <p class="solution-text">Полный пакет экспортных документов: инвойсы, CMR, таможенные декларации, сертификаты. Мы оформляем всё на EU-стороне.</p>
         </div>
       </div>
     </div>
@@ -85,82 +152,220 @@
   <!-- ===== SERVICES ===== -->
   <section class="section" id="services">
     <div class="container">
-      <h2 class="section-title">Что мы делаем</h2>
-      <p class="section-subtitle">Полный цикл на EU-стороне — от поиска поставщика до экспортной таможни</p>
+      <h2 class="section-title">Полный цикл на EU-стороне</h2>
+      <p class="section-subtitle">От поиска поставщика до отгрузки с нашего склада — всё под ключ</p>
 
       <div class="services-grid">
         <div class="service-card">
-          <div class="icon">&#x1F50D;</div>
+          <div class="service-num">01</div>
           <h3>Поиск и закупка товаров</h3>
-          <p>Находим EU-поставщиков, ведём переговоры, выкупаем товар от нашего юрлица</p>
+          <p>Находим EU-поставщиков, ведём переговоры, выкупаем товар от нашего юрлица. Контроль качества при приёмке.</p>
         </div>
         <div class="service-card">
-          <div class="icon">&#x1F4B6;</div>
-          <h3>Платежи в EU</h3>
-          <p>Оплачиваем инвойсы EU-поставщиков с нашего EUR-счёта. Мультивалютные расчёты</p>
+          <div class="service-num">02</div>
+          <h3>Платежи EU-поставщикам</h3>
+          <p>Оплачиваем инвойсы с нашего EUR-счёта. Без посредников, без задержек. Мультивалютные расчёты: EUR, USD, CNY.</p>
         </div>
         <div class="service-card">
-          <div class="icon">&#x1F3ED;</div>
+          <div class="service-num">03</div>
           <h3>Складская логистика</h3>
-          <p>Приём, хранение, консолидация и маркировка на наших складах в 3 странах ЕС</p>
+          <p>Приём, хранение, консолидация и маркировка на наших складах в 3 странах ЕС. Бесплатное хранение до 14 дней.</p>
         </div>
         <div class="service-card">
-          <div class="icon">&#x1F4CB;</div>
+          <div class="service-num">04</div>
           <h3>Экспортная таможня</h3>
-          <p>Полный пакет экспортных документов. Оформляем таможню на EU-стороне</p>
+          <p>Полный пакет экспортных документов. Оформляем таможню на EU-стороне. Знаем актуальные ограничения.</p>
         </div>
         <div class="service-card">
-          <div class="icon">&#x1F69A;</div>
+          <div class="service-num">05</div>
           <h3>Доставка до границы</h3>
-          <p>Организуем транспортировку: авто, ж/д, сборные грузы. Болгария, Польша, Литва — 3 коридора</p>
+          <p>Организуем перевозку: авто, ж/д, сборные грузы. Три коридора: Болгария (юг), Польша (центр), Литва (север).</p>
         </div>
         <div class="service-card">
-          <div class="icon">&#x1F91D;</div>
+          <div class="service-num">06</div>
           <h3>Представительство в EU</h3>
-          <p>Работаем как ваш офис в ЕС. Решаем вопросы с поставщиками, рекламации, возвраты</p>
+          <p>Работаем как ваш офис в ЕС. Решаем вопросы с поставщиками: рекламации, возвраты, переговоры, аудит.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section section-alt" id="how">
+    <div class="container">
+      <h2 class="section-title">Как это работает</h2>
+      <p class="section-subtitle">6 шагов от заявки до товара на вашем складе</p>
+
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Заявка</h3>
+            <p>Вы отправляете запрос: что нужно закупить, у кого, в каком объёме. Или просите найти поставщика.</p>
+          </div>
+        </div>
+        <div class="step-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Расчёт и договор</h3>
+            <p>Считаем стоимость, согласовываем условия, подписываем договор. Вы платите в удобной валюте.</p>
+          </div>
+        </div>
+        <div class="step-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Закупка в EU</h3>
+            <p>Выкупаем товар у EU-поставщика от нашего юрлица. Оплата инвойсов в EUR за 1 день.</p>
+          </div>
+        </div>
+        <div class="step-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Склад и консолидация</h3>
+            <p>Принимаем товар на склад в ЕС. Проверяем, маркируем, консолидируем грузы от разных поставщиков.</p>
+          </div>
+        </div>
+        <div class="step-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Таможня и документы</h3>
+            <p>Оформляем экспортную таможню на EU-стороне. Полный пакет: инвойсы, CMR, декларации, сертификаты.</p>
+          </div>
+        </div>
+        <div class="step-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Отгрузка</h3>
+            <p>Отправляем груз оптимальным маршрутом: авто, ж/д или сборным. Трекинг на каждом этапе.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== GOODS ===== -->
-  <section class="section section-alt" id="goods">
+  <section class="section" id="goods">
     <div class="container">
       <h2 class="section-title">Типы товаров</h2>
       <p class="section-subtitle">Работаем с широким спектром продукции из Европы</p>
 
       <div class="goods-grid">
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x1F35E;</div>
-          <div class="goods-overlay"><span>Продукты питания</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          </div>
+          <span>Промышленное оборудование</span>
         </div>
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x1F9F1;</div>
-          <div class="goods-overlay"><span>Стройматериалы</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <span>Электроника и IT</span>
         </div>
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x2699;&#xFE0F;</div>
-          <div class="goods-overlay"><span>Промышленное оборудование</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3"/><line x1="9" y1="7" x2="10" y2="7"/><line x1="9" y1="11" x2="10" y2="11"/><line x1="9" y1="15" x2="10" y2="15"/><line x1="14" y1="7" x2="15" y2="7"/><line x1="14" y1="11" x2="15" y2="11"/><line x1="14" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <span>Стройматериалы</span>
         </div>
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x1F4BB;</div>
-          <div class="goods-overlay"><span>Электроника и IT</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span>Фармацевтика</span>
         </div>
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x1F48A;</div>
-          <div class="goods-overlay"><span>Фармацевтика</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><path d="M7 17m-2 0a2 2 0 104 0 2 2 0 10-4 0M17 17m-2 0a2 2 0 104 0 2 2 0 10-4 0"/><path d="M5 17H3V6l4-3h6l4 3h4v5h-2"/><line x1="5" y1="9" x2="19" y2="9"/></svg>
+          </div>
+          <span>Автозапчасти</span>
         </div>
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x1F697;</div>
-          <div class="goods-overlay"><span>Автозапчасти</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><path d="M8 3v3a2 2 0 01-2 2H3m18 0h-3a2 2 0 01-2-2V3m0 18v-3a2 2 0 012-2h3M3 16h3a2 2 0 012 2v3"/></svg>
+          </div>
+          <span>Химия и сырьё</span>
         </div>
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #f1f8e9, #dcedc8); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x1F33F;</div>
-          <div class="goods-overlay"><span>Химия и сырьё</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <span>Косметика</span>
         </div>
-        <div class="goods-card">
-          <div class="goods-bg" style="background: linear-gradient(135deg, #efebe9, #d7ccc8); display:flex; align-items:center; justify-content:center; font-size:3rem;">&#x1F4E6;</div>
-          <div class="goods-overlay"><span>Другие товары</span></div>
+        <div class="goods-item">
+          <div class="goods-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <span>Любые другие товары</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GEOGRAPHY ===== -->
+  <section class="section section-dark" id="geography">
+    <div class="container">
+      <h2 class="section-title section-title-light">География присутствия</h2>
+      <p class="section-subtitle section-subtitle-light">Три логистических коридора через ЕС</p>
+
+      <div class="geo-grid">
+        <div class="geo-card">
+          <div class="geo-flag">&#127463;&#127468;</div>
+          <h3>Болгария</h3>
+          <p class="geo-city">София</p>
+          <p>Юридический адрес, офис, складские площади. Южный коридор — доступ к Турции, Греции, Балканам.</p>
+          <div class="geo-tag">Штаб-квартира</div>
+        </div>
+        <div class="geo-card">
+          <div class="geo-flag">&#127477;&#127473;</div>
+          <h3>Польша</h3>
+          <p class="geo-city">Варшава</p>
+          <p>Партнёрский склад и логистический хаб. Центральный коридор — прямой выход на Беларусь и Калининград.</p>
+          <div class="geo-tag">Логистика</div>
+        </div>
+        <div class="geo-card">
+          <div class="geo-flag">&#127473;&#127481;</div>
+          <h3>Литва</h3>
+          <p class="geo-city">Вильнюс</p>
+          <p>Северный коридор. Быстрая доставка в Калининград, СПб и Москву. Железнодорожное сообщение.</p>
+          <div class="geo-tag">Логистика</div>
+        </div>
+      </div>
+
+      <div class="geo-routes">
+        <h3>Маршруты доставки</h3>
+        <div class="routes-grid">
+          <div class="route">
+            <span class="route-type">Авто</span>
+            <span class="route-time">5-12 дней</span>
+          </div>
+          <div class="route">
+            <span class="route-type">Ж/Д</span>
+            <span class="route-time">10-18 дней</span>
+          </div>
+          <div class="route">
+            <span class="route-type">Сборный</span>
+            <span class="route-time">от 100 кг</span>
+          </div>
+          <div class="route">
+            <span class="route-type">Мультимодальный</span>
+            <span class="route-time">индивидуально</span>
+          </div>
         </div>
       </div>
     </div>
@@ -174,37 +379,149 @@
 
       <div class="why-grid">
         <div class="why-card">
-          <div class="num">EU</div>
-          <h3>Юрлицо в ЕС</h3>
-          <p>Зарегистрированная болгарская компания. Легальный импорт через EU-юрлицо — полностью прозрачная схема</p>
+          <div class="why-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Легальная схема</h3>
+          <p>Зарегистрированная болгарская компания. EU-юрлицо с полной отчётностью. Все операции прозрачны.</p>
         </div>
         <div class="why-card">
-          <div class="num">3</div>
-          <h3>Склада в ЕС</h3>
-          <p>Болгария (юг), Польша (центр), Литва (север) — три логистических коридора для ваших грузов</p>
+          <div class="why-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <h3>Скорость платежей</h3>
+          <p>Оплата инвойсов EU-поставщикам за 1 рабочий день. Не дни и недели — часы.</p>
         </div>
         <div class="why-card">
-          <div class="num">4</div>
-          <h3>Валюты расчётов</h3>
-          <p>EUR, CNY, USD, RUB — принимаем оплату в удобной валюте. Платим поставщикам напрямую в евро</p>
+          <div class="why-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Партнёр, не конкурент</h3>
+          <p>Мы не берём ваших клиентов. Работаем как ваш EU-офис — субподряд на стороне ЕС.</p>
         </div>
         <div class="why-card">
-          <div class="num">&#x2714;</div>
-          <h3>Полный пакет документов</h3>
-          <p>Инвойсы, CMR, таможенные декларации, сертификаты — всё что нужно для легальной поставки</p>
+          <div class="why-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>Документы в порядке</h3>
+          <p>Инвойсы, CMR, EX-декларации, сертификаты соответствия — всё что нужно для импорта в РФ.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+          </div>
+          <h3>Гибкие условия</h3>
+          <p>Работаем и с крупными партиями, и со сборными грузами от 100 кг. Комиссия от 5% — обсуждается.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2589c4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>3 точки в ЕС</h3>
+          <p>Болгария, Польша, Литва — покрываем юг, центр и север Европы. Выбираем оптимальный маршрут.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CTA ===== -->
-  <section class="cta-section" id="contact">
+  <!-- ===== FOR WHO ===== -->
+  <section class="section section-alt" id="forwho">
     <div class="container">
-      <h2>Готовы обсудить вашу задачу?</h2>
-      <p>Расскажите что нужно закупить в Европе — мы предложим маршрут, сроки и стоимость. Ответим в течение 24 часов.</p>
-      <div class="cta-buttons">
-        <a href="mailto:logist@euro.s.bg" class="btn btn-white">logist@euro.s.bg</a>
-        <a href="tel:+359892098460" class="btn btn-ghost">+359 89 209 84 60</a>
+      <h2 class="section-title">Для кого мы работаем</h2>
+      <p class="section-subtitle">Два формата сотрудничества</p>
+
+      <div class="forwho-grid">
+        <div class="forwho-card">
+          <div class="forwho-badge">B2B — Логисты</div>
+          <h3>Логистические компании и операторы ВЭД</h3>
+          <p>У вас есть клиенты в РФ, но нужен надёжный контрагент на EU-стороне. Мы — ваш субподрядчик в ЕС:</p>
+          <ul>
+            <li>Закупка товаров от EU-юрлица</li>
+            <li>Оплата инвойсов EU-поставщикам</li>
+            <li>Консолидация на наших складах</li>
+            <li>Экспортная таможня и документы</li>
+          </ul>
+          <p class="forwho-note">Вам не нужно открывать юрлицо в ЕС — мы уже здесь.</p>
+        </div>
+        <div class="forwho-card">
+          <div class="forwho-badge">Прямые клиенты</div>
+          <h3>Компании, закупающие товары в Европе</h3>
+          <p>Ваш поставщик отказался работать напрямую? Мы берём на себя всю EU-сторону:</p>
+          <ul>
+            <li>Поиск и переговоры с поставщиками</li>
+            <li>Выкуп товара от нашего EU-юрлица</li>
+            <li>Хранение и отправка с нашего склада</li>
+            <li>Полный пакет документов для импорта</li>
+          </ul>
+          <p class="forwho-note">Вы получаете товар так, будто покупали его в России.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Частые вопросы</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Это легально?</summary>
+          <p>Да. EUROSFERA LTD — зарегистрированная болгарская компания, действующая в рамках законодательства ЕС. Все операции проводятся через официальные банковские счета с полным пакетом документов. Параллельный импорт разрешён Приказом Минпромторга РФ от 19.04.2022 №1532.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Какая комиссия за ваши услуги?</summary>
+          <p>Комиссия зависит от объёма и типа услуг: от 5% за выкуп и платежи, индивидуально за логистику и таможню. Точный расчёт — после получения вашей заявки. Стоимость фиксируется в договоре и не меняется.</p>
+        </details>
+        <details class="faq-item">
+          <summary>В какой валюте я могу оплатить?</summary>
+          <p>Принимаем EUR, USD, CNY и RUB. Конкретная схема расчётов согласовывается индивидуально в зависимости от вашей юрисдикции и требований.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Какие сроки доставки?</summary>
+          <p>Зависит от маршрута: авто 5-12 дней, ж/д 10-18 дней, сборные грузы — в зависимости от консолидации. Выкуп товара у поставщика — 1-3 рабочих дня после оплаты. Общий срок от заявки до получения: 2-4 недели.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Работаете ли вы с небольшими партиями?</summary>
+          <p>Да. Минимальный объём для сборных грузов — от 100 кг. Для мелких партий используем консолидацию: собираем грузы от разных поставщиков на нашем складе и отправляем одной партией.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Я — логистическая компания. Как с вами работать?</summary>
+          <p>Мы выступаем как ваш субподрядчик на EU-стороне. Не берём ваших клиентов. Вы продаёте «под ключ» — мы делаем EU-часть. Формат: B2B-договор, white label, без контакта с вашим конечным клиентом.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA + CONTACT FORM ===== -->
+  <section class="section cta-section" id="contact">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Готовы обсудить вашу задачу?</h2>
+          <p>Расскажите что нужно закупить в Европе — мы предложим маршрут, сроки и стоимость. Ответим в течение 24 часов.</p>
+          <div class="cta-contacts">
+            <a href="mailto:logist@euro.s.bg" class="cta-contact-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              logist@euro.s.bg
+            </a>
+            <a href="tel:+359892098460" class="cta-contact-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              +359 89 209 84 60
+            </a>
+          </div>
+        </div>
+        <div class="cta-form-wrap">
+          <form class="contact-form" id="contactForm" action="mailto:logist@euro.s.bg" method="POST" enctype="text/plain">
+            <input type="text" name="company" placeholder="Компания" required>
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Телефон (с кодом страны)">
+            <textarea name="message" rows="4" placeholder="Опишите задачу: что нужно закупить, откуда, какой объём?" required></textarea>
+            <button type="submit" class="btn btn-primary btn-lg btn-full">Отправить заявку</button>
+            <p class="form-note">Или напишите напрямую: <a href="mailto:logist@euro.s.bg">logist@euro.s.bg</a></p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -220,6 +537,14 @@
           </div>
           <p>Болгарская компания, София. Закупки, платежи и складская логистика в Евросоюзе для бизнеса из СНГ.</p>
         </div>
+        <div class="footer-links">
+          <h4>Навигация</h4>
+          <a href="#problems">Проблемы и решения</a>
+          <a href="#services">Услуги</a>
+          <a href="#how">Как работаем</a>
+          <a href="#geography">География</a>
+          <a href="#faq">FAQ</a>
+        </div>
         <div class="footer-contacts">
           <h4>Контакты</h4>
           <a href="mailto:logist@euro.s.bg">logist@euro.s.bg</a>
@@ -233,15 +558,53 @@
     </div>
   </footer>
 
-  <!-- ===== JS — mobile menu ===== -->
+  <!-- ===== JS ===== -->
   <script>
+    // Mobile menu
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('mainNav').classList.toggle('open');
+      this.classList.toggle('active');
     });
-    // close menu on link click
     document.querySelectorAll('#mainNav a').forEach(function(link) {
       link.addEventListener('click', function() {
         document.getElementById('mainNav').classList.remove('open');
+        document.getElementById('menuToggle').classList.remove('active');
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      var header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item summary').forEach(function(summary) {
+      summary.addEventListener('click', function(e) {
+        var parent = this.parentElement;
+        var allDetails = document.querySelectorAll('.faq-item');
+        allDetails.forEach(function(detail) {
+          if (detail !== parent && detail.open) {
+            detail.open = false;
+          }
+        });
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          var offset = 80;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
       });
     });
   </script>
