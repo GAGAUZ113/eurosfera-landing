@@ -4,142 +4,263 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EUROSFERA — Ваше представительство в Евросоюзе</title>
-<meta name="description" content="Евросфера — закупка товаров, платежи в EUR, лицензии на ПО, логистика из ЕС для бизнеса из России и СНГ.">
+<meta name="description" content="Евросфера — закупка товаров в ЕС, логистика, склады в 3 странах, лицензии на ПО. EU-юрлицо, EUR-счёт, работаем с 2020 года.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--dark:#0B1D3A;--white:#FFFFFF;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-400:#94A3B8;--gray-600:#475569;--accent:#2563EB;--accent-light:#3B82F6;--accent-dark:#1D4ED8}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--dark);background:var(--white);line-height:1.6;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-
-/* REVEAL ANIMATIONS */
-.reveal{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
-.revealed{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.15s}
-.reveal-delay-2{transition-delay:.3s}
-.reveal-delay-3{transition-delay:.45s}
-
-/* HEADER */
-.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:background .3s,box-shadow .3s,padding .3s}
-.header.scrolled{background:rgba(11,29,58,.97);box-shadow:0 1px 20px rgba(0,0,0,.15);padding:10px 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px}
-.logo img{height:36px;width:auto}
-.logo span{font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:2px;text-transform:uppercase}
-.nav{display:flex;align-items:center;gap:32px}
-.nav a{color:rgba(255,255,255,.8);font-size:.875rem;font-weight:500;transition:color .2s;letter-spacing:.3px}
-.nav a:hover{color:var(--white)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 24px;border-radius:6px;font-size:.875rem;font-weight:600;transition:all .2s;border:none;cursor:pointer}
-.btn-accent{background:var(--accent);color:var(--white)}
-.btn-accent:hover{background:var(--accent-dark);transform:translateY(-1px)}
-.btn-outline{border:1.5px solid rgba(255,255,255,.3);color:var(--white);background:transparent}
-.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
-
-/* MOBILE MENU */
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--dark);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px}
-.mobile-menu.open{display:flex}
-.mobile-menu a{color:var(--white);font-size:1.25rem;font-weight:500}
-.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer}
-.mobile-close svg{width:28px;height:28px;stroke:var(--white);stroke-width:2}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--dark);position:relative;overflow:hidden;padding:120px 24px 80px}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(37,99,235,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(37,99,235,.08) 0%,transparent 50%)}
-.hero-grid{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;animation:gridDrift 20s linear infinite}
-@keyframes gridDrift{0%{transform:translate(0,0)}100%{transform:translate(40px,40px)}}
-.hero-content{position:relative;text-align:center;max-width:800px}
-.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:24px;letter-spacing:-.5px}
-.hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--gray-400);margin-bottom:40px;letter-spacing:.2px}
-.hero .btn{font-size:1rem;padding:14px 36px}
-.trust-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:64px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
-.trust-badges span{color:rgba(255,255,255,.45);font-size:.8rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
-
-/* DIRECTIONS */
-.directions{padding:120px 0;background:var(--gray-50)}
-.section-title{text-align:center;margin-bottom:64px}
-.section-title h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.section-title p{color:var(--gray-600);font-size:1.05rem}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:var(--white);border-radius:12px;padding:40px 32px;border:1px solid rgba(0,0,0,.06);transition:all .35s ease;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(11,29,58,.1)}
-.card-icon{width:52px;height:52px;border-radius:10px;background:rgba(37,99,235,.08);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
-.card-icon svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.card h3{font-size:1.25rem;font-weight:700;margin-bottom:12px}
-.card p{color:var(--gray-600);font-size:.95rem;line-height:1.65;flex:1;margin-bottom:24px}
-.card-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:.9rem;font-weight:600;transition:gap .2s}
-.card-link:hover{gap:10px}
-
-/* WHY US */
-.why{padding:120px 0}
-.features{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:64px}
-.feature{text-align:center}
-.feature-icon{width:56px;height:56px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
-.feature-icon svg{width:24px;height:24px;stroke:var(--white);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.feature h4{font-size:1rem;font-weight:700;margin-bottom:8px}
-.feature p{color:var(--gray-600);font-size:.85rem;line-height:1.6}
-
-/* CTA */
-.cta{padding:100px 0;background:var(--dark);text-align:center}
-.cta h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:var(--white);margin-bottom:12px}
-.cta>div>p{color:var(--gray-400);margin-bottom:40px;font-size:1.05rem}
-.cta-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:32px}
-.cta-buttons .btn{gap:8px;min-width:160px}
-.cta-buttons .btn svg{width:18px;height:18px;fill:currentColor}
-.cta-phone{color:var(--gray-400);font-size:.95rem}
-.cta-phone a{color:var(--white);font-weight:600}
-
-/* FOOTER */
-.footer{padding:48px 0;background:#071529;text-align:center}
-.footer-inner{display:flex;flex-direction:column;align-items:center;gap:20px}
-.footer-logo{display:flex;align-items:center;gap:10px}
-.footer-logo img{height:28px}
-.footer-logo span{font-size:.95rem;font-weight:600;color:var(--white);letter-spacing:1.5px}
-.footer-meta{color:var(--gray-400);font-size:.8rem;line-height:1.7}
-.footer-nav{display:flex;gap:24px}
-.footer-nav a{color:var(--gray-400);font-size:.8rem;transition:color .2s}
-.footer-nav a:hover{color:var(--white)}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .cards{grid-template-columns:1fr 1fr;gap:20px}
-  .features{grid-template-columns:1fr 1fr;gap:24px}
+:root {
+  --navy: #0B1D3A;
+  --navy-deep: #071529;
+  --navy-light: #0F2847;
+  --white: #FFFFFF;
+  --gray-50: #F7F9FC;
+  --gray-100: #E2E8F0;
+  --gray-400: #94A3B8;
+  --gray-600: #64748B;
+  --blue: #3B82F6;
+  --blue-dark: #2563EB;
+  --blue-glow: rgba(59,130,246,.15);
+  --indigo: #6366F1;
+  --teal: #14B8A6;
 }
-@media(max-width:768px){
-  .nav{display:none}
-  .burger{display:flex}
-  .cards{grid-template-columns:1fr}
-  .features{grid-template-columns:1fr 1fr}
-  .hero{min-height:90vh;padding:100px 20px 60px}
-  .trust-badges{flex-direction:column;align-items:center;gap:12px}
-  .directions,.why{padding:80px 0}
-  .cta{padding:72px 0}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--white); background: var(--navy); line-height: 1.65; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+h1,h2,h3,h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; line-height: 1.2; }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== CANVAS ===== */
+#particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .35; }
+
+/* ===== HEADER ===== */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; transition: all .4s; }
+.header.scrolled { background: rgba(7,21,41,.96); backdrop-filter: blur(16px); box-shadow: 0 1px 30px rgba(0,0,0,.25); padding: 10px 0; }
+.header .wrap { display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo img { height: 34px; }
+.logo span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 2.5px; text-transform: uppercase; }
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.65); transition: color .25s; letter-spacing: .3px; }
+.nav a:hover { color: var(--white); }
+.nav .btn-cta { background: var(--blue); color: var(--white); padding: 9px 22px; border-radius: 8px; font-weight: 600; transition: background .2s, box-shadow .2s, transform .2s; }
+.nav .btn-cta:hover { background: var(--blue-dark); box-shadow: 0 4px 20px rgba(59,130,246,.35); transform: translateY(-1px); }
+.burger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; margin: 5px 0; transition: .3s; }
+.mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy-deep); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--white); font-size: 1.2rem; font-weight: 500; }
+.mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; cursor: pointer; }
+.mobile-close svg { width: 28px; height: 28px; stroke: var(--white); stroke-width: 2; }
+
+/* ===== HERO ===== */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 0 80px; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 25% 40%, rgba(59,130,246,.12) 0%, transparent 60%), radial-gradient(ellipse 60% 70% at 75% 55%, rgba(99,102,241,.08) 0%, transparent 50%); }
+.hero-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px); background-size: 44px 44px; }
+.hero .wrap { display: flex; align-items: center; gap: 60px; position: relative; z-index: 2; }
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; margin-bottom: 20px; letter-spacing: -.5px; }
+.hero-text h1 .accent { background: linear-gradient(135deg, var(--blue), var(--indigo)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-text .lead { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--gray-400); margin-bottom: 32px; max-width: 520px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: var(--white); padding: 14px 32px; border-radius: 10px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; transition: all .25s; }
+.btn-primary:hover { background: var(--blue-dark); box-shadow: 0 8px 28px rgba(59,130,246,.35); transform: translateY(-2px); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--white); padding: 14px 32px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1.5px solid rgba(255,255,255,.2); cursor: pointer; transition: all .25s; }
+.btn-outline:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.05); }
+.trust-row { display: flex; gap: 24px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); padding: 8px 16px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; }
+.trust-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+/* Globe */
+.globe-wrap { flex-shrink: 0; width: 380px; height: 380px; position: relative; }
+.globe-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 60px; height: 60px; background: linear-gradient(135deg, var(--blue), var(--indigo)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7px; font-weight: 700; letter-spacing: .5px; box-shadow: 0 0 40px rgba(59,130,246,.4); animation: pulse 3s ease-in-out infinite; z-index: 2; }
+.orbit { position: absolute; border: 1.5px dashed rgba(59,130,246,.2); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.orbit-1 { width: 300px; height: 300px; animation: spin 28s linear infinite; }
+.orbit-2 { width: 200px; height: 200px; animation: spin 20s linear infinite reverse; }
+.orbit-3 { width: 120px; height: 120px; animation: spin 14s linear infinite; }
+.planet { position: absolute; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,.2); }
+.planet-bg { background: #4F46E5; top: 0; left: 50%; transform: translate(-50%,-50%); }
+.planet-pl { background: #DC2626; top: 50%; right: 0; transform: translate(50%,-50%); }
+.planet-lt { background: #16A34A; bottom: 0; left: 50%; transform: translate(-50%,50%); }
+.planet-de { background: #F59E0B; top: 0; left: 50%; transform: translate(-50%,-50%); }
+.planet-cis { background: #8B5CF6; top: 50%; left: 0; transform: translate(-50%,-50%); }
+.route-line { position: absolute; top: 50%; left: 50%; width: 1px; height: 130px; background: linear-gradient(to bottom, rgba(59,130,246,.12), transparent); transform-origin: top; }
+@keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 25px rgba(59,130,246,.3); } 50% { box-shadow: 0 0 50px rgba(59,130,246,.5); } }
+
+/* ===== ABOUT ===== */
+.about { padding: 100px 0; background: var(--navy-deep); position: relative; }
+.about::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,.2), transparent); }
+.about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.about-text h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 20px; }
+.about-text p { color: var(--gray-400); font-size: 15px; margin-bottom: 16px; }
+.about-text p strong { color: var(--white); font-weight: 600; }
+.about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fact { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 24px; text-align: center; transition: border-color .3s; }
+.fact:hover { border-color: rgba(59,130,246,.2); }
+.fact-num { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--blue); margin-bottom: 4px; }
+.fact-label { font-size: 13px; color: var(--gray-400); }
+
+/* ===== DIRECTIONS ===== */
+.directions { padding: 100px 0; position: relative; }
+.directions::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,.15), transparent); }
+.section-head { text-align: center; margin-bottom: 56px; }
+.section-head h2 { font-size: clamp(1.5rem, 3.5vw, 2.4rem); margin-bottom: 12px; }
+.section-head p { color: var(--gray-400); font-size: 15px; max-width: 500px; margin: 0 auto; }
+.dir-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.dir-card { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 36px 28px 32px; display: flex; flex-direction: column; transition: all .4s cubic-bezier(.22,1,.36,1); position: relative; overflow: hidden; }
+.dir-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; transition: opacity .4s; }
+.dir-card:nth-child(1)::before { background: linear-gradient(90deg, var(--blue), var(--teal)); }
+.dir-card:nth-child(2)::before { background: linear-gradient(90deg, var(--indigo), var(--blue)); }
+.dir-card:nth-child(3)::before { background: linear-gradient(90deg, var(--teal), var(--indigo)); }
+.dir-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.04); box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+.dir-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.dir-card:nth-child(1) .dir-icon { background: rgba(59,130,246,.12); }
+.dir-card:nth-child(2) .dir-icon { background: rgba(99,102,241,.12); }
+.dir-card:nth-child(3) .dir-icon { background: rgba(20,184,166,.12); }
+.dir-icon svg { width: 26px; height: 26px; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.dir-card:nth-child(1) .dir-icon svg { stroke: var(--blue); }
+.dir-card:nth-child(2) .dir-icon svg { stroke: var(--indigo); }
+.dir-card:nth-child(3) .dir-icon svg { stroke: var(--teal); }
+.dir-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+.dir-card p { color: var(--gray-400); font-size: 14px; line-height: 1.7; flex: 1; margin-bottom: 16px; }
+.dir-card ul { list-style: none; margin-bottom: 20px; flex: 1; }
+.dir-card li { color: var(--gray-400); font-size: 13px; padding: 5px 0; padding-left: 18px; position: relative; }
+.dir-card li::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; }
+.dir-card:nth-child(1) li::before { background: var(--blue); }
+.dir-card:nth-child(2) li::before { background: var(--indigo); }
+.dir-card:nth-child(3) li::before { background: var(--teal); }
+.dir-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; transition: gap .25s; }
+.dir-card:nth-child(1) .dir-link { color: var(--blue); }
+.dir-card:nth-child(2) .dir-link { color: var(--indigo); }
+.dir-card:nth-child(3) .dir-link { color: var(--teal); }
+.dir-link:hover { gap: 12px; }
+
+/* ===== GEOGRAPHY ===== */
+.geo { padding: 80px 0; background: var(--navy-deep); position: relative; overflow: hidden; }
+.geo::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(99,102,241,.15), transparent); }
+.geo .wrap { position: relative; z-index: 2; }
+.geo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+.geo-item { text-align: center; padding: 28px 16px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; transition: all .3s; }
+.geo-item:hover { border-color: rgba(59,130,246,.2); transform: translateY(-4px); }
+.geo-flag { font-size: 32px; margin-bottom: 8px; }
+.geo-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.geo-desc { font-size: 12px; color: var(--gray-400); }
+
+/* ===== HOW ===== */
+.how { padding: 100px 0; position: relative; }
+.how::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,.15), transparent); }
+.steps-row { display: flex; align-items: flex-start; justify-content: space-between; position: relative; margin-top: 56px; }
+.steps-row::before { content: ''; position: absolute; top: 28px; left: 70px; right: 70px; height: 2px; background: rgba(59,130,246,.12); }
+.step { text-align: center; flex: 1; position: relative; z-index: 1; }
+.step-circle { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--indigo)); color: var(--white); font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 4px 24px rgba(59,130,246,.25); }
+.step h4 { font-size: 15px; margin-bottom: 6px; }
+.step p { font-size: 13px; color: var(--gray-400); max-width: 170px; margin: 0 auto; }
+
+/* ===== STATS ===== */
+.stats { padding: 60px 0; background: linear-gradient(135deg, var(--blue), var(--indigo)); position: relative; overflow: hidden; }
+.stats::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,.03) 40px, rgba(255,255,255,.03) 80px); }
+.stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 1; }
+.stat { text-align: center; }
+.stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; }
+.stat-label { font-size: 13px; opacity: .85; margin-top: 4px; }
+
+/* ===== CLIENTS ===== */
+.clients { padding: 80px 0; background: var(--navy-deep); position: relative; }
+.clients::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,.15), transparent); }
+.client-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.client-type { padding: 32px 24px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; }
+.client-type h4 { font-size: 16px; margin-bottom: 10px; color: var(--blue); }
+.client-type p { font-size: 14px; color: var(--gray-400); }
+
+/* ===== QUOTE ===== */
+.quote { padding: 72px 0; position: relative; }
+.quote::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,.15), transparent); }
+.quote .wrap { max-width: 800px; text-align: center; }
+.quote-text { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 500; line-height: 1.5; margin-bottom: 16px; }
+.quote-text::before { content: '\201C'; font-size: 48px; color: var(--blue); line-height: 0; vertical-align: -14px; margin-right: 4px; }
+.quote-sub { font-size: 13px; color: var(--gray-400); }
+
+/* ===== CTA ===== */
+.cta { padding: 80px 0; background: linear-gradient(135deg, var(--blue), var(--indigo)); text-align: center; position: relative; overflow: hidden; }
+.cta .wrap { max-width: 700px; position: relative; z-index: 2; }
+.cta h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 12px; }
+.cta > .wrap > p { color: rgba(255,255,255,.85); font-size: 15px; margin-bottom: 32px; }
+.cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.cta-btn { padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; transition: all .25s; display: inline-flex; align-items: center; gap: 8px; }
+.cta-wa { background: #25D366; color: var(--white); }
+.cta-tg { background: #0088CC; color: var(--white); }
+.cta-mail { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.4); }
+.cta-wa:hover, .cta-tg:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+.cta-mail:hover { background: rgba(255,255,255,.1); }
+.cta-phone { font-size: 18px; font-weight: 600; color: rgba(255,255,255,.9); }
+.cta-phone a { color: var(--white); }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--navy-deep); padding: 40px 0 28px; }
+.footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 1px; }
+.footer nav { display: flex; gap: 24px; }
+.footer nav a { font-size: 13px; color: var(--gray-400); transition: color .2s; }
+.footer nav a:hover { color: var(--white); }
+.footer-legal { font-size: 12px; color: var(--gray-600); width: 100%; text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.06); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .dir-cards { grid-template-columns: 1fr 1fr; }
+  .geo-grid { grid-template-columns: repeat(2, 1fr); }
+  .about .wrap { grid-template-columns: 1fr; gap: 40px; }
 }
-@media(max-width:480px){
-  .features{grid-template-columns:1fr}
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .burger { display: block; }
+  .hero .wrap { flex-direction: column; gap: 40px; text-align: center; }
+  .hero-text .lead { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .trust-row { justify-content: center; }
+  .globe-wrap { width: 260px; height: 260px; margin: 0 auto; }
+  .orbit-1 { width: 220px; height: 220px; }
+  .orbit-2 { width: 150px; height: 150px; }
+  .orbit-3 { width: 90px; height: 90px; }
+  .globe-center { width: 46px; height: 46px; font-size: 6px; }
+  .planet { width: 28px; height: 28px; font-size: 8px; }
+  .dir-cards { grid-template-columns: 1fr; }
+  .stats .wrap { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .stat-num { font-size: 34px; }
+  .steps-row { flex-direction: column; align-items: center; gap: 28px; }
+  .steps-row::before { display: none; }
+  .geo-grid { grid-template-columns: 1fr 1fr; }
+  .client-types { grid-template-columns: 1fr; }
+  .about-facts { grid-template-columns: 1fr 1fr; }
+  .section-head h2 { font-size: 1.6rem; }
+  .footer .wrap { justify-content: center; text-align: center; }
+  .footer nav { width: 100%; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .geo-grid { grid-template-columns: 1fr; }
+  .about-facts { grid-template-columns: 1fr; }
+  .trust-row { flex-direction: column; align-items: center; }
 }
 </style>
 </head>
 <body>
 
+<canvas id="particles"></canvas>
+
 <!-- HEADER -->
 <header class="header" id="header">
-  <div class="container header-inner">
-    <a href="/" class="logo">
-      <img src="img/logo.png" alt="Eurosfera">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="EUROSFERA">
       <span>Eurosfera</span>
     </a>
     <nav class="nav">
+      <a href="#about">О компании</a>
       <a href="#directions">Направления</a>
-      <a href="#why">О нас</a>
-      <a href="#contact">Контакты</a>
-      <a href="#contact" class="btn btn-accent">Обсудить задачу</a>
+      <a href="#how">Как работаем</a>
+      <a href="#contact" class="btn-cta">Связаться</a>
     </nav>
     <button class="burger" id="burgerBtn" aria-label="Меню">
       <span></span><span></span><span></span>
@@ -152,150 +273,332 @@ img{max-width:100%;display:block}
   <button class="mobile-close" id="mobileClose">
     <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
-  <a href="#directions" class="mobile-link">Направления</a>
-  <a href="#why" class="mobile-link">О нас</a>
-  <a href="#contact" class="mobile-link">Контакты</a>
-  <a href="#contact" class="btn btn-accent">Обсудить задачу</a>
+  <a href="#about" class="mob-link">О компании</a>
+  <a href="#directions" class="mob-link">Направления</a>
+  <a href="#how" class="mob-link">Как работаем</a>
+  <a href="#contact" class="mob-link">Связаться</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1 class="reveal">Ваше представительство<br>в Евросоюзе</h1>
-    <p class="reveal reveal-delay-1">Закупка товаров&ensp;·&ensp;Платежи в EUR&ensp;·&ensp;Лицензии на ПО&ensp;·&ensp;Логистика из ЕС</p>
-    <a href="#directions" class="btn btn-accent reveal reveal-delay-2">Узнать больше</a>
-    <div class="trust-badges reveal reveal-delay-3">
-      <span>EU-юрлицо</span>
-      <span>EUR-счёт</span>
-      <span>Склады в 3 странах</span>
+  <div class="hero-dots"></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>Ваше представительство<br>в <span class="accent">Евросоюзе</span></h1>
+      <p class="lead">Закупаем товары у европейских поставщиков, оплачиваем инвойсы в евро, храним на складах ЕС и организуем доставку — легально, от имени EU-компании.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Обсудить задачу</a>
+        <a href="#directions" class="btn-outline">Направления &darr;</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><span class="trust-dot"></span> EU-юрлицо</div>
+        <div class="trust-item"><span class="trust-dot"></span> EUR-счёт</div>
+        <div class="trust-item"><span class="trust-dot"></span> Склады в 3 странах</div>
+      </div>
+    </div>
+    <div class="globe-wrap">
+      <div class="globe-center">EURO<br>SFERA</div>
+      <div class="route-line" style="transform:rotate(0deg)"></div>
+      <div class="route-line" style="transform:rotate(72deg)"></div>
+      <div class="route-line" style="transform:rotate(144deg)"></div>
+      <div class="route-line" style="transform:rotate(216deg)"></div>
+      <div class="route-line" style="transform:rotate(288deg)"></div>
+      <div class="orbit orbit-1">
+        <div class="planet planet-bg">BG</div>
+        <div class="planet planet-pl">PL</div>
+      </div>
+      <div class="orbit orbit-2">
+        <div class="planet planet-de">DE</div>
+        <div class="planet planet-lt">LT</div>
+      </div>
+      <div class="orbit orbit-3">
+        <div class="planet planet-cis">CIS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-text">
+      <h2>EUROSFERA LTD — болгарская компания с фокусом на торговлю между ЕС и СНГ</h2>
+      <p>Мы — <strong>зарегистрированное юридическое лицо в Болгарии</strong> (ЕИК 207067847, VAT BG207067847). У нас открыты счета в евро в двух европейских банках — UBB и Eurobank.</p>
+      <p>Работаем с поставщиками в <strong>15+ странах Европы</strong>: Германия, Испания, Италия, Польша, Чехия, Португалия, Литва, Латвия и другие. Закупаем товары, ПО, оборудование — и организуем логистику до конечного получателя.</p>
+      <p>Наше преимущество — <strong>полный цикл</strong>: от поиска поставщика и оплаты инвойса до консолидации на складе и отправки в Россию, Таджикистан, Узбекистан, Монголию.</p>
+    </div>
+    <div class="about-facts">
+      <div class="fact">
+        <div class="fact-num" data-target="3">3</div>
+        <div class="fact-label">склада в ЕС</div>
+      </div>
+      <div class="fact">
+        <div class="fact-num">15+</div>
+        <div class="fact-label">стран-поставщиков</div>
+      </div>
+      <div class="fact">
+        <div class="fact-num">2</div>
+        <div class="fact-label">банка в Европе</div>
+      </div>
+      <div class="fact">
+        <div class="fact-num">1 день</div>
+        <div class="fact-label">оплата инвойса</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- DIRECTIONS -->
 <section class="directions" id="directions">
-  <div class="container">
-    <div class="section-title reveal">
+  <div class="wrap">
+    <div class="section-head">
       <h2>Три направления — одна компания</h2>
+      <p>Выберите задачу — мы предложим решение</p>
     </div>
-    <div class="cards">
-      <div class="card reveal reveal-delay-1">
-        <div class="card-icon">
+    <div class="dir-cards">
+      <a href="goods.html" class="dir-card">
+        <div class="dir-icon">
           <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </div>
         <h3>Товары и оборудование</h3>
-        <p>Закупка у EU-поставщиков, оплата инвойсов, консолидация и экспорт в&nbsp;Россию и&nbsp;СНГ.</p>
-        <a href="goods.html" class="card-link">Подробнее <span>&rarr;</span></a>
-      </div>
-      <div class="card reveal reveal-delay-2">
-        <div class="card-icon">
+        <ul>
+          <li>Закупка у EU-поставщиков от нашего юрлица</li>
+          <li>Оплата инвойсов в EUR за 1 рабочий день</li>
+          <li>Консолидация на складах ЕС</li>
+          <li>Экспорт в Россию, СНГ, Среднюю Азию</li>
+          <li>Строительные материалы, керамика, сантехника, оборудование</li>
+        </ul>
+        <span class="dir-link">Подробнее &rarr;</span>
+      </a>
+      <a href="logistics.html" class="dir-card">
+        <div class="dir-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <h3>Логистика</h3>
-        <p>Склады в&nbsp;Болгарии, Польше, Литве. Таможенное оформление, консолидация, доставка.</p>
-        <a href="logistics.html" class="card-link">Подробнее <span>&rarr;</span></a>
-      </div>
-      <div class="card reveal reveal-delay-3">
-        <div class="card-icon">
+        <h3>Логистика и склады</h3>
+        <ul>
+          <li>Склады в Болгарии, Польше и Литве</li>
+          <li>Приёмка, хранение, консолидация грузов</li>
+          <li>Таможенное оформление (EORI, VAT)</li>
+          <li>Доставка: авто, авиа, море, ж/д</li>
+          <li>Партнёрская сеть перевозчиков по всей Европе</li>
+        </ul>
+        <span class="dir-link">Подробнее &rarr;</span>
+      </a>
+      <a href="it.html" class="dir-card">
+        <div class="dir-icon">
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
         <h3>IT и лицензии ПО</h3>
-        <p>Легальный доступ к&nbsp;западному ПО через EU-юрлицо. SAP, Oracle, Autodesk, JetBrains.</p>
-        <a href="it.html" class="card-link">Подробнее <span>&rarr;</span></a>
+        <ul>
+          <li>Закупка лицензий: Microsoft, Adobe, AnyDesk, ZWCAD</li>
+          <li>Легальный доступ к западному ПО через EU-юрлицо</li>
+          <li>Регистрация компании в Болгарии — от 5 000 €</li>
+          <li>Открытие EUR-счетов, EORI, VAT</li>
+          <li>Полное сопровождение бизнеса в ЕС</li>
+        </ul>
+        <span class="dir-link">Подробнее &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GEOGRAPHY -->
+<section class="geo" id="geo">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>География присутствия</h2>
+      <p>Склады в 3 странах, поставщики по всей Европе</p>
+    </div>
+    <div class="geo-grid">
+      <div class="geo-item">
+        <div class="geo-flag">🇧🇬</div>
+        <div class="geo-name">Болгария</div>
+        <div class="geo-desc">Головной офис, склад, регистрация компаний</div>
+      </div>
+      <div class="geo-item">
+        <div class="geo-flag">🇵🇱</div>
+        <div class="geo-name">Польша</div>
+        <div class="geo-desc">Склад, приёмка грузов из Германии и Скандинавии</div>
+      </div>
+      <div class="geo-item">
+        <div class="geo-flag">🇱🇹</div>
+        <div class="geo-name">Литва</div>
+        <div class="geo-desc">Транзитный склад, отправка в Россию и СНГ</div>
+      </div>
+      <div class="geo-item">
+        <div class="geo-flag">🇪🇺</div>
+        <div class="geo-name">15+ стран ЕС</div>
+        <div class="geo-desc">Поставщики: DE, ES, IT, PT, CZ, AT, FR, NL и др.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY US -->
-<section class="why" id="why">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Почему Eurosfera</h2>
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Как это работает</h2>
+      <p>От заявки до доставки — 4 простых шага</p>
     </div>
-    <div class="features">
-      <div class="feature reveal reveal-delay-1">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h4>EU-юрлицо</h4>
-        <p>Болгарская компания<br>ЕИК 207067847</p>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-circle">1</div>
+        <h4>Заявка</h4>
+        <p>Опишите задачу: что нужно закупить, куда доставить</p>
       </div>
-      <div class="feature reveal reveal-delay-2">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <h4>EUR-счёт</h4>
-        <p>Расчёты в евро<br>в европейском банке</p>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <h4>Расчёт</h4>
+        <p>Мы считаем стоимость, логистику и сроки. Согласуем с вами</p>
       </div>
-      <div class="feature reveal reveal-delay-3">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h4>3 склада в ЕС</h4>
-        <p>Болгария, Польша,<br>Литва</p>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <h4>Закупка</h4>
+        <p>Оплачиваем поставщику от EU-юрлица, принимаем товар на склад</p>
       </div>
-      <div class="feature reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h4>15+ стран</h4>
-        <p>Поставщики по всей<br>Европе</p>
+      <div class="step">
+        <div class="step-circle">4</div>
+        <h4>Доставка</h4>
+        <p>Отправляем вам — авто, авиа, морем или ж/д</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA / CONTACT -->
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">склада в ЕС</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">стран-поставщиков</div></div>
+    <div class="stat"><div class="stat-num">€5K</div><div class="stat-label">регистрация EU-компании</div></div>
+    <div class="stat"><div class="stat-num">1 день</div><div class="stat-label">оплата инвойса</div></div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="clients" id="clients">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Для кого мы работаем</h2>
+      <p>Компании из России и СНГ, которым нужен надёжный партнёр в Европе</p>
+    </div>
+    <div class="client-types">
+      <div class="client-type">
+        <h4>Импортёры</h4>
+        <p>Закупаете товары в Европе? Мы оплатим поставщику от EU-юрлица, примем груз на склад, отправим вам. Никаких проблем с платежами в евро.</p>
+      </div>
+      <div class="client-type">
+        <h4>Производства</h4>
+        <p>Нужно оборудование, комплектующие или сырьё из ЕС? Найдём поставщика, согласуем условия, обеспечим поставку с таможенным оформлением.</p>
+      </div>
+      <div class="client-type">
+        <h4>IT-компании</h4>
+        <p>Лицензии Microsoft, Adobe, AnyDesk и другое ПО — легально через EU-юрлицо. Помогаем открыть собственную компанию в Болгарии.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="wrap">
+    <div class="quote-text">Мы — ваш офис в Европе. Закупаем, оплачиваем, доставляем. Всё легально, в евро, с полным документальным сопровождением.</div>
+    <div class="quote-sub">EUROSFERA LTD &middot; EIK 207067847 &middot; VAT BG207067847 &middot; София, Болгария</div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta" id="contact">
-  <div class="container">
-    <h2 class="reveal">Готовы обсудить задачу?</h2>
-    <p class="reveal reveal-delay-1">Напишите нам — ответим в течение часа</p>
-    <div class="cta-buttons reveal reveal-delay-2">
-      <a href="https://wa.me/359892098460" target="_blank" class="btn btn-accent">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+  <div class="wrap">
+    <h2>Готовы обсудить задачу?</h2>
+    <p>Напишите нам — ответим в течение часа в рабочее время</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/359892098460" target="_blank" class="cta-btn cta-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
         WhatsApp
       </a>
-      <a href="https://t.me/eurosfera" target="_blank" class="btn btn-outline">
-        <svg viewBox="0 0 24 24"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.855.075 1.644.357 1.906.397.368.904.584 1.293.744l.005.002 2.856 1.023a.466.466 0 0 0 .063.166l1.455 3.39a1.078 1.078 0 0 0 .896.637l-.004.007.008.001c.025.003.082.01.163.01a1.07 1.07 0 0 0 .764-.343l1.83-1.95 3.564 2.898c.037.028.078.048.118.073a1.264 1.264 0 0 0 .86.199c.546-.088.882-.473 1.02-.834l3.18-15.065c.127-.593.068-1.2-.375-1.648a1.463 1.463 0 0 0-.895-.378z"/></svg>
+      <a href="https://t.me/eurosfera" target="_blank" class="cta-btn cta-tg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         Telegram
       </a>
-      <a href="mailto:logist@euro-s.bg" class="btn btn-outline">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <a href="mailto:logist@euro.s.bg" class="cta-btn cta-mail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Email
       </a>
     </div>
-    <p class="cta-phone reveal reveal-delay-3"><a href="tel:+359892098460">+359 89 209 84 60</a></p>
+    <div class="cta-phone"><a href="tel:+359892098460">+359 89 209 84 60</a></div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="container footer-inner">
-    <div class="footer-logo">
-      <img src="img/logo.png" alt="Eurosfera">
-      <span>Eurosfera</span>
-    </div>
-    <div class="footer-nav">
-      <a href="#directions">Направления</a>
-      <a href="#why">О нас</a>
-      <a href="#contact">Контакты</a>
-    </div>
-    <div class="footer-meta">
-      EUROSFERA LTD · ЕИК 207067847 · София, Болгария<br>
-      &copy; 2026 Eurosfera. Все права защищены.
-    </div>
+  <div class="wrap">
+    <div class="footer-brand">Eurosfera</div>
+    <nav>
+      <a href="goods.html">Товары</a>
+      <a href="logistics.html">Логистика</a>
+      <a href="it.html">IT и ПО</a>
+      <a href="mailto:logist@euro.s.bg">Контакты</a>
+    </nav>
+    <div class="footer-legal">&copy; 2026 EUROSFERA LTD &middot; EIK 207067847 &middot; VAT BG207067847 &middot; logist@euro.s.bg</div>
   </div>
 </footer>
 
 <script>
-// Header scroll effect
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, {passive: true});
+// Particle network
+(function(){
+  const c = document.getElementById('particles');
+  const ctx = c.getContext('2d');
+  let w, h, particles = [];
+  function resize(){ w = c.width = innerWidth; h = c.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+  class P {
+    constructor(){ this.reset(); }
+    reset(){
+      this.x = Math.random()*w; this.y = Math.random()*h;
+      this.vx = (Math.random()-.5)*.25; this.vy = (Math.random()-.5)*.25;
+      this.r = Math.random()*1.8+.4;
+      this.o = Math.random()*.25+.05;
+    }
+    update(){
+      this.x += this.vx; this.y += this.vy;
+      if(this.x<0||this.x>w||this.y<0||this.y>h) this.reset();
+    }
+    draw(){
+      ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(59,130,246,${this.o})`; ctx.fill();
+    }
+  }
+  const count = Math.min(50, Math.floor(w*h/25000));
+  for(let i=0;i<count;i++) particles.push(new P());
+  function lines(){
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<140){
+          ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(59,130,246,${.05*(1-d/140)})`;
+          ctx.lineWidth=.5; ctx.stroke();
+        }
+      }
+    }
+  }
+  function loop(){
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(p=>{p.update();p.draw();});
+    lines();
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+// Sticky header
+const hdr = document.getElementById('header');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40), {passive:true});
 
 // Mobile menu
 const burgerBtn = document.getElementById('burgerBtn');
@@ -307,17 +610,14 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => mobileMenu.classList.remove('open'));
 });
 
-// Scroll reveal with IntersectionObserver
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      observer.unobserve(entry.target);
-    }
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth'});
   });
-}, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
-reveals.forEach(el => observer.observe(el));
+});
 </script>
 </body>
 </html>
