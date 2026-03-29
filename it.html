@@ -4,268 +4,264 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IT и лицензии ПО — EUROSFERA</title>
-<meta name="description" content="Легальный доступ к западному ПО через регистрацию EU-юрлица в Болгарии. SAP, Oracle, Autodesk, JetBrains, Adobe и другие.">
+<meta name="description" content="Легальный доступ к западному ПО через EU-юрлицо. Microsoft, Adobe, AnyDesk, ZWCAD и другие лицензии. Регистрация компании в Болгарии.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
+:root {
+  --navy: #0B1D3A; --navy-deep: #071529; --white: #FFFFFF;
+  --gray-400: #94A3B8; --gray-600: #64748B;
+  --blue: #3B82F6; --blue-dark: #2563EB; --indigo: #6366F1; --teal: #14B8A6;
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--dark:#0B1D3A;--white:#FFFFFF;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-400:#94A3B8;--gray-600:#475569;--accent:#2563EB;--accent-light:#3B82F6;--accent-dark:#1D4ED8}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--dark);background:var(--white);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--white);background:var(--navy);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.2}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 
-/* REVEAL */
-.reveal{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
-.revealed{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.15s}
-.reveal-delay-2{transition-delay:.3s}
-.reveal-delay-3{transition-delay:.45s}
-
-/* HEADER */
-.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:background .3s,box-shadow .3s,padding .3s;background:rgba(11,29,58,.97)}
-.header.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.15);padding:10px 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px}
-.logo img{height:36px;width:auto}
-.logo span{font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:2px;text-transform:uppercase}
-.nav{display:flex;align-items:center;gap:32px}
-.nav a{color:rgba(255,255,255,.8);font-size:.875rem;font-weight:500;transition:color .2s;letter-spacing:.3px}
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(7,21,41,.96);backdrop-filter:blur(16px);box-shadow:0 1px 20px rgba(0,0,0,.2)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:34px}
+.logo span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:2.5px;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:14px;font-weight:500;color:rgba(255,255,255,.65);transition:color .25s}
 .nav a:hover{color:var(--white)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 24px;border-radius:6px;font-size:.875rem;font-weight:600;transition:all .2s;border:none;cursor:pointer}
-.btn-accent{background:var(--accent);color:var(--white)}
-.btn-accent:hover{background:var(--accent-dark);transform:translateY(-1px)}
-.btn-outline{border:1.5px solid rgba(255,255,255,.3);color:var(--white);background:transparent}
-.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.nav .btn-cta{background:var(--blue);color:var(--white);padding:9px 22px;border-radius:8px;font-weight:600;transition:all .2s}
+.nav .btn-cta:hover{background:var(--blue-dark);box-shadow:0 4px 20px rgba(59,130,246,.35)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;margin:5px 0}
 
-/* MOBILE MENU */
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--dark);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px}
-.mobile-menu.open{display:flex}
-.mobile-menu a{color:var(--white);font-size:1.25rem;font-weight:500}
-.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer}
-.mobile-close svg{width:28px;height:28px;stroke:var(--white);stroke-width:2}
+.hero-mini{padding:130px 0 70px;text-align:center;position:relative;overflow:hidden}
+.hero-mini::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(20,184,166,.08),transparent 60%)}
+.hero-mini .breadcrumb{font-size:13px;color:var(--gray-400);margin-bottom:16px}
+.hero-mini .breadcrumb a{color:var(--teal);transition:color .2s}
+.hero-mini .breadcrumb a:hover{color:var(--white)}
+.hero-mini h1{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:16px}
+.hero-mini p{color:var(--gray-400);font-size:16px;max-width:620px;margin:0 auto}
 
-/* HERO (shorter) */
-.hero{padding:140px 24px 80px;background:var(--dark);position:relative;overflow:hidden;text-align:center}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(37,99,235,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(37,99,235,.08) 0%,transparent 50%)}
-.hero-grid{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;animation:gridDrift 20s linear infinite}
-@keyframes gridDrift{0%{transform:translate(0,0)}100%{transform:translate(40px,40px)}}
-.hero-content{position:relative;max-width:800px;margin:0 auto}
-.hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:20px;letter-spacing:-.5px}
-.hero p{font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--gray-400);margin-bottom:0;letter-spacing:.2px}
-
-/* SECTIONS */
-.section{padding:100px 0}
-.section-alt{background:var(--gray-50)}
-.section-title{text-align:center;margin-bottom:56px}
-.section-title h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.section-title p{color:var(--gray-600);font-size:1.05rem;max-width:640px;margin:0 auto}
-
-/* PROBLEM */
-.problem-text{max-width:760px;margin:0 auto;color:var(--gray-600);font-size:1.05rem;line-height:1.75;text-align:center}
-.problem-text strong{color:var(--dark)}
-
-/* STEPS */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:step}
-.step{background:var(--white);border-radius:12px;padding:40px 28px;border:1px solid rgba(0,0,0,.06);transition:all .35s ease;position:relative}
-.step:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(11,29,58,.1)}
-.step-num{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;margin-bottom:20px}
-.step h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
-.step p{color:var(--gray-600);font-size:.93rem;line-height:1.65}
-.step .price{display:inline-block;margin-top:12px;padding:4px 12px;background:rgba(37,99,235,.08);color:var(--accent);border-radius:4px;font-size:.85rem;font-weight:600}
+.section{padding:80px 0;position:relative}
+.section:nth-child(even){background:var(--navy-deep)}
+.section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(20,184,166,.15),transparent)}
+.section-head{text-align:center;margin-bottom:48px}
+.section-head h2{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:10px}
+.section-head p{color:var(--gray-400);font-size:15px;max-width:520px;margin:0 auto}
 
 /* SOFTWARE GRID */
 .sw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.sw-card{background:var(--white);border-radius:10px;padding:28px 24px;border:1px solid rgba(0,0,0,.06);transition:all .3s}
-.sw-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(11,29,58,.08)}
-.sw-card-icon{width:44px;height:44px;border-radius:8px;background:rgba(37,99,235,.08);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.sw-card-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.sw-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
-.sw-card p{color:var(--gray-600);font-size:.87rem;line-height:1.55}
+.sw-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px;transition:all .3s}
+.sw-card:hover{border-color:rgba(20,184,166,.2);transform:translateY(-4px)}
+.sw-brand{font-size:15px;font-weight:700;font-family:'Space Grotesk',sans-serif;margin-bottom:8px;color:var(--teal)}
+.sw-card p{font-size:13px;color:var(--gray-400)}
 
-/* WHY BULGARIA */
-.advantages{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
-.advantage{text-align:center}
-.adv-icon{width:56px;height:56px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
-.adv-icon svg{width:24px;height:24px;stroke:var(--white);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.advantage h4{font-size:1rem;font-weight:700;margin-bottom:8px}
-.advantage p{color:var(--gray-600);font-size:.85rem;line-height:1.6}
+/* TWO COLUMNS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.two-col-text h3{font-size:1.3rem;margin-bottom:16px}
+.two-col-text p{color:var(--gray-400);font-size:14px;margin-bottom:12px}
+.two-col-text p strong{color:var(--white);font-weight:600}
+.feature-list{list-style:none}
+.feature-list li{font-size:14px;color:var(--gray-400);padding:8px 0;padding-left:20px;position:relative;border-bottom:1px solid rgba(255,255,255,.04)}
+.feature-list li::before{content:'';position:absolute;left:0;top:15px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.feature-list li:last-child{border-bottom:none}
 
-/* CTA */
-.cta{padding:100px 0;background:var(--dark);text-align:center}
-.cta h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:var(--white);margin-bottom:12px}
-.cta>div>p{color:var(--gray-400);margin-bottom:40px;font-size:1.05rem}
-.cta-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:32px}
-.cta-buttons .btn{gap:8px;min-width:160px}
-.cta-buttons .btn svg{width:18px;height:18px;fill:currentColor}
-.cta-phone{color:var(--gray-400);font-size:.95rem}
-.cta-phone a{color:var(--white);font-weight:600}
+/* PRICING */
+.pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:800px;margin:0 auto}
+.price-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:36px 28px;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.price-card.featured{border-color:rgba(20,184,166,.3);background:rgba(20,184,166,.04)}
+.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--blue))}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.15)}
+.price-tag{font-size:12px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.price-card h3{font-size:20px;margin-bottom:8px}
+.price-amount{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;margin:16px 0 8px}
+.price-amount span{font-size:16px;font-weight:400;color:var(--gray-400)}
+.price-note{font-size:12px;color:var(--gray-400);margin-bottom:20px}
+.price-features{list-style:none;text-align:left}
+.price-features li{font-size:13px;color:var(--gray-400);padding:6px 0;padding-left:18px;position:relative}
+.price-features li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--teal)}
 
-/* FOOTER */
-.footer{padding:48px 0;background:#071529;text-align:center}
-.footer-inner{display:flex;flex-direction:column;align-items:center;gap:20px}
-.footer-logo{display:flex;align-items:center;gap:10px}
-.footer-logo img{height:28px}
-.footer-logo span{font-size:.95rem;font-weight:600;color:var(--white);letter-spacing:1.5px}
-.footer-meta{color:var(--gray-400);font-size:.8rem;line-height:1.7}
-.footer-nav{display:flex;gap:24px}
-.footer-nav a{color:var(--gray-400);font-size:.8rem;transition:color .2s}
-.footer-nav a:hover{color:var(--white)}
+/* HOW */
+.how-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.how-step{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px;display:flex;gap:16px}
+.how-step:hover{border-color:rgba(20,184,166,.15)}
+.how-num{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--teal);line-height:1;flex-shrink:0}
+.how-step h4{font-size:15px;margin-bottom:6px}
+.how-step p{font-size:13px;color:var(--gray-400)}
 
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .steps,.sw-grid{grid-template-columns:1fr 1fr}
-  .advantages{grid-template-columns:1fr 1fr;gap:24px}
-}
+.cta{padding:72px 0;background:linear-gradient(135deg,var(--teal),var(--blue));text-align:center}
+.cta .wrap{max-width:650px}
+.cta h2{font-size:clamp(1.4rem,3vw,1.8rem);margin-bottom:12px}
+.cta>div>p{color:rgba(255,255,255,.85);font-size:15px;margin-bottom:28px}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.cta-btn{padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+.cta-wa{background:#25D366;color:#fff}.cta-tg{background:#0088CC;color:#fff}
+.cta-mail{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+.cta-wa:hover,.cta-tg:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.cta-phone{font-size:16px;font-weight:600}
+.cta-phone a{color:#fff}
+
+.footer{background:var(--navy-deep);padding:36px 0 24px}
+.footer .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:1px}
+.footer nav{display:flex;gap:20px}
+.footer nav a{font-size:13px;color:var(--gray-400);transition:color .2s}
+.footer nav a:hover{color:var(--white)}
+.footer-legal{font-size:11px;color:var(--gray-600);width:100%;text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)}
+
 @media(max-width:768px){
-  .nav{display:none}
-  .burger{display:flex}
-  .steps,.sw-grid{grid-template-columns:1fr}
-  .advantages{grid-template-columns:1fr 1fr}
-  .hero{padding:120px 20px 60px}
-  .section{padding:72px 0}
-  .cta{padding:72px 0}
-}
-@media(max-width:480px){
-  .advantages{grid-template-columns:1fr}
+  .nav{display:none}.burger{display:block}
+  .sw-grid,.how-grid,.pricing,.two-col{grid-template-columns:1fr}
+  .footer .wrap{justify-content:center;text-align:center}
+  .footer nav{width:100%;justify-content:center}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header" id="header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <img src="img/logo.png" alt="Eurosfera">
-      <span>Eurosfera</span>
-    </a>
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="logo"><img src="img/logo.png" alt="EUROSFERA"><span>Eurosfera</span></a>
     <nav class="nav">
-      <a href="index.html">На главную</a>
+      <a href="index.html">Главная</a>
       <a href="goods.html">Товары</a>
       <a href="logistics.html">Логистика</a>
-      <a href="#contact">Контакты</a>
-      <a href="#contact" class="btn btn-accent">Обсудить задачу</a>
+      <a href="#cta" class="btn-cta">Связаться</a>
     </nav>
-    <button class="burger" id="burgerBtn" aria-label="Меню">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">
-    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="index.html" class="mobile-link">На главную</a>
-  <a href="goods.html" class="mobile-link">Товары</a>
-  <a href="logistics.html" class="mobile-link">Логистика</a>
-  <a href="#contact" class="mobile-link">Контакты</a>
-  <a href="#contact" class="btn btn-accent">Обсудить задачу</a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1 class="reveal">IT и лицензии ПО</h1>
-    <p class="reveal reveal-delay-1">Легальный доступ к&nbsp;западному программному обеспечению через регистрацию EU-юрлица в&nbsp;Болгарии</p>
+<section class="hero-mini">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Главная</a> &rarr; IT и лицензии ПО</div>
+    <h1>IT-направление и лицензии ПО</h1>
+    <p>Легальный доступ к западному программному обеспечению через EU-юрлицо. Закупка лицензий, регистрация компаний в Болгарии, открытие банковских счетов.</p>
   </div>
 </section>
 
-<!-- PROBLEM -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Что произошло</h2>
-    </div>
-    <div class="problem-text reveal reveal-delay-1">
-      После 2022 года крупнейшие вендоры&nbsp;&mdash; <strong>SAP, Oracle, Microsoft, Autodesk, Adobe, Siemens, JetBrains</strong>&nbsp;&mdash; прекратили работу с&nbsp;российскими юридическими лицами. Компании из&nbsp;России потеряли доступ к&nbsp;обновлениям, технической поддержке и&nbsp;возможности приобретать новые лицензии. Бизнес-процессы, завязанные на&nbsp;западное ПО, оказались под угрозой остановки.
-    </div>
-  </div>
-</section>
-
-<!-- SOLUTION -->
+<!-- SOFTWARE -->
 <section class="section">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Легальное решение</h2>
-      <p>Три шага к&nbsp;полноценному доступу к&nbsp;западному ПО</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal reveal-delay-1">
-        <div class="step-num">1</div>
-        <h3>Регистрация EU-компании</h3>
-        <p>Открываем юридическое лицо в&nbsp;Болгарии (ЕС) на&nbsp;ваше имя. Вы&nbsp;&mdash; учредитель и&nbsp;полноправный владелец компании.</p>
-        <span class="price">от €5,000</span>
-      </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-num">2</div>
-        <h3>Покупка лицензий</h3>
-        <p>Ваша EU-компания закупает программное обеспечение напрямую у&nbsp;вендоров как полноценный EU-резидент.</p>
-      </div>
-      <div class="step reveal reveal-delay-3">
-        <div class="step-num">3</div>
-        <h3>Использование</h3>
-        <p>Лицензии оформлены на&nbsp;ваше EU-юрлицо. Полная легальность, обновления и&nbsp;техническая поддержка от&nbsp;вендора.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOFTWARE CATEGORIES -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Доступное ПО</h2>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Программное обеспечение</h2>
+      <p>Лицензии от ведущих вендоров через авторизованные каналы</p>
     </div>
     <div class="sw-grid">
-      <div class="sw-card reveal reveal-delay-1">
-        <div class="sw-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h3>ERP-системы</h3>
-        <p>SAP, Oracle, Microsoft Dynamics</p>
+      <div class="sw-card">
+        <div class="sw-brand">Microsoft</div>
+        <p>Windows, Office 365, Windows Server, SQL Server. Лицензии CSP, Open License, EA через авторизованного дистрибьютора.</p>
       </div>
-      <div class="sw-card reveal reveal-delay-2">
-        <div class="sw-card-icon">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        </div>
-        <h3>Проектирование</h3>
-        <p>Autodesk, SolidWorks, Siemens&nbsp;NX</p>
+      <div class="sw-card">
+        <div class="sw-brand">Adobe</div>
+        <p>Creative Cloud, Acrobat Pro, Document Cloud. Подписки для команд и предприятий.</p>
       </div>
-      <div class="sw-card reveal reveal-delay-3">
-        <div class="sw-card-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        </div>
-        <h3>Дизайн и медиа</h3>
-        <p>Adobe Creative Cloud, Figma</p>
+      <div class="sw-card">
+        <div class="sw-brand">AnyDesk</div>
+        <p>Удалённый доступ для бизнеса. Прямой контракт с вендором, оперативная активация.</p>
       </div>
-      <div class="sw-card reveal reveal-delay-1">
-        <div class="sw-card-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <h3>Разработка</h3>
-        <p>JetBrains, GitHub Enterprise, Atlassian</p>
+      <div class="sw-card">
+        <div class="sw-brand">ZWCAD</div>
+        <p>Профессиональное CAD-ПО. Альтернатива AutoCAD с полной совместимостью DWG.</p>
       </div>
-      <div class="sw-card reveal reveal-delay-2">
-        <div class="sw-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-        </div>
-        <h3>Облачные сервисы</h3>
-        <p>AWS, Azure, Google Cloud</p>
+      <div class="sw-card">
+        <div class="sw-brand">Corel / Alludo</div>
+        <p>CorelDRAW Graphics Suite, WinZip Enterprise. Лицензии для организаций.</p>
       </div>
-      <div class="sw-card reveal reveal-delay-3">
-        <div class="sw-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Безопасность</h3>
-        <p>Fortinet, Palo Alto, CrowdStrike</p>
+      <div class="sw-card">
+        <div class="sw-brand">Другие вендоры</div>
+        <p>MDaemon, Vamsoft ORF, JetBrains, Autodesk — закупаем любое ПО под запрос.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Как купить лицензию</h2>
+      <p>Простой процесс от запроса до активации</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <div><h4>Запрос</h4><p>Опишите какое ПО нужно: название, количество лицензий, тип подписки.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <div><h4>Расчёт</h4><p>Мы запрашиваем цены у дистрибьюторов, подбираем оптимальную схему лицензирования.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <div><h4>Оплата</h4><p>Оплачиваем от EU-юрлица в евро. Вы получаете полный пакет документов.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <div><h4>Активация</h4><p>Передаём лицензионные ключи или приглашения в облачные сервисы. Помогаем с настройкой.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EU COMPANY -->
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div class="two-col-text">
+        <h3>Регистрация компании в Болгарии</h3>
+        <p>Болгария — член ЕС с <strong>самым низким корпоративным налогом в Европе (10%)</strong>. Регистрация компании открывает доступ ко всему европейскому рынку.</p>
+        <p>Мы берём на себя весь процесс: от подготовки документов до открытия банковских счетов и получения номеров EORI и VAT.</p>
+        <p>Регистрация занимает <strong>2-3 недели</strong>. После этого вы получаете полноценную EU-компанию с возможностью работать с любыми европейскими контрагентами.</p>
+      </div>
+      <div>
+        <ul class="feature-list">
+          <li>Регистрация ООД/ЕООД (аналог ООО)</li>
+          <li>Юридический адрес в Болгарии</li>
+          <li>Открытие EUR-счёта в UBB или Eurobank</li>
+          <li>Получение ЕИК (единый идентификационный код)</li>
+          <li>Регистрация VAT (НДС)</li>
+          <li>Получение EORI для таможенных операций</li>
+          <li>Бухгалтерское сопровождение (опционально)</li>
+          <li>Налог на прибыль — 10% (самый низкий в ЕС)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Стоимость услуг</h2>
+      <p>Прозрачные цены, без скрытых платежей</p>
+    </div>
+    <div class="pricing">
+      <div class="price-card">
+        <div class="price-tag">Лицензии ПО</div>
+        <h3>Закупка софта</h3>
+        <div class="price-amount">индивидуально</div>
+        <div class="price-note">Зависит от вендора и объёма</div>
+        <ul class="price-features">
+          <li>Цена вендора + наша комиссия</li>
+          <li>Полный документооборот</li>
+          <li>Помощь с активацией</li>
+          <li>Возможность регулярных закупок</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tag">EU-компания</div>
+        <h3>Регистрация в Болгарии</h3>
+        <div class="price-amount">&euro;5 000 <span>под ключ</span></div>
+        <div class="price-note">Срок: 2-3 недели</div>
+        <ul class="price-features">
+          <li>Регистрация юрлица ООД/ЕООД</li>
+          <li>Юридический адрес</li>
+          <li>Банковский счёт в EUR</li>
+          <li>VAT + EORI номера</li>
+          <li>Консультация по налогам</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -273,114 +269,57 @@ a{color:inherit;text-decoration:none}
 
 <!-- WHY BULGARIA -->
 <section class="section">
-  <div class="container">
-    <div class="section-title reveal">
+  <div class="wrap">
+    <div class="section-head">
       <h2>Почему Болгария</h2>
+      <p>Оптимальная юрисдикция для IT и торговли</p>
     </div>
-    <div class="advantages">
-      <div class="advantage reveal reveal-delay-1">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h4>Член ЕС с 2007 года</h4>
-        <p>Полный доступ к&nbsp;EU-рынку и&nbsp;всем европейским вендорам</p>
+    <div class="sw-grid">
+      <div class="sw-card">
+        <div class="sw-brand">10% налог</div>
+        <p>Самый низкий корпоративный налог в Евросоюзе. Дивиденды — 5%.</p>
       </div>
-      <div class="advantage reveal reveal-delay-2">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h4>Налог 10%</h4>
-        <p>Самый низкий корпоративный налог в&nbsp;Евросоюзе</p>
+      <div class="sw-card">
+        <div class="sw-brand">Член ЕС</div>
+        <p>Полный доступ к европейскому рынку, банковской системе и правовой защите.</p>
       </div>
-      <div class="advantage reveal reveal-delay-3">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h4>5-7 рабочих дней</h4>
-        <p>Быстрая регистрация компании под ключ</p>
-      </div>
-      <div class="advantage reveal">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-        </div>
-        <h4>Без ограничений</h4>
-        <p>Нет ограничений для иностранных учредителей</p>
+      <div class="sw-card">
+        <div class="sw-brand">Быстрая регистрация</div>
+        <p>2-3 недели до полностью работающей компании с банковским счётом.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="contact">
-  <div class="container">
-    <h2 class="reveal">Готовы обсудить задачу?</h2>
-    <p class="reveal reveal-delay-1">Напишите нам — ответим в течение часа</p>
-    <div class="cta-buttons reveal reveal-delay-2">
-      <a href="https://wa.me/359892098460" target="_blank" class="btn btn-accent">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-        WhatsApp
-      </a>
-      <a href="https://t.me/eurosfera" target="_blank" class="btn btn-outline">
-        <svg viewBox="0 0 24 24"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.855.075 1.644.357 1.906.397.368.904.584 1.293.744l.005.002 2.856 1.023a.466.466 0 0 0 .063.166l1.455 3.39a1.078 1.078 0 0 0 .896.637l-.004.007.008.001c.025.003.082.01.163.01a1.07 1.07 0 0 0 .764-.343l1.83-1.95 3.564 2.898c.037.028.078.048.118.073a1.264 1.264 0 0 0 .86.199c.546-.088.882-.473 1.02-.834l3.18-15.065c.127-.593.068-1.2-.375-1.648a1.463 1.463 0 0 0-.895-.378z"/></svg>
-        Telegram
-      </a>
-      <a href="mailto:logist@euro-s.bg" class="btn btn-outline">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Email
-      </a>
+<section class="cta" id="cta">
+  <div class="wrap">
+    <h2>Нужны лицензии или EU-компания?</h2>
+    <p>Напишите — подготовим расчёт или консультацию</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/359892098460" target="_blank" class="cta-btn cta-wa">WhatsApp</a>
+      <a href="https://t.me/eurosfera" target="_blank" class="cta-btn cta-tg">Telegram</a>
+      <a href="mailto:it@euro.s.bg" class="cta-btn cta-mail">Email</a>
     </div>
-    <p class="cta-phone reveal reveal-delay-3"><a href="tel:+359892098460">+359 89 209 84 60</a></p>
+    <div class="cta-phone"><a href="tel:+359892098460">+359 89 209 84 60</a></div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
-  <div class="container footer-inner">
-    <div class="footer-logo">
-      <img src="img/logo.png" alt="Eurosfera">
-      <span>Eurosfera</span>
-    </div>
-    <div class="footer-nav">
+  <div class="wrap">
+    <div class="footer-brand">Eurosfera</div>
+    <nav>
       <a href="index.html">Главная</a>
       <a href="goods.html">Товары</a>
       <a href="logistics.html">Логистика</a>
-      <a href="#contact">Контакты</a>
-    </div>
-    <div class="footer-meta">
-      EUROSFERA LTD &middot; ЕИК 207067847 &middot; София, Болгария<br>
-      &copy; 2026 Eurosfera. Все права защищены.
-    </div>
+    </nav>
+    <div class="footer-legal">&copy; 2026 EUROSFERA LTD &middot; EIK 207067847 &middot; it@euro.s.bg</div>
   </div>
 </footer>
 
 <script>
-// Header scroll
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, {passive: true});
-
-// Mobile menu
-const burgerBtn = document.getElementById('burgerBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileClose = document.getElementById('mobileClose');
-burgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
 });
-
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
-reveals.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
