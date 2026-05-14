@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUROSFERA EOOD — European Trading & Distribution | Bulgaria</title>
+    <meta name="description" content="EUROSFERA EOOD — European trading and distribution company based in Bulgaria. IT solutions, construction materials, raw materials, logistics, and business services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--navy:#0d2847;--blue:#4a9bd9;--light-blue:#7eb8da;--accent:#e94560;--bg:#f8fafc;--text:#1e293b;--text-light:#64748b;--white:#fff;--border:#e2e8f0}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+        nav{position:fixed;top:0;width:100%;background:rgba(13,40,71,.97);backdrop-filter:blur(8px);z-index:100;padding:0 2rem}
+        .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+        .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white)}
+        .nav-logo img{width:40px;height:40px;border-radius:8px}
+        .nav-logo span{font-weight:700;font-size:1.1rem;letter-spacing:.5px}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover,.nav-links a:focus-visible{color:var(--white)}
+        .nav-links a:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:2px}
+        .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .burger span{display:block;width:24px;height:2px;background:var(--white);margin:5px 0;transition:transform .3s,opacity .3s}
+        .hero{background:linear-gradient(135deg,var(--navy) 0%,#163a65 50%,var(--blue) 100%);color:var(--white);padding:10rem 2rem 6rem;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(74,155,217,.15) 0%,transparent 70%);border-radius:50%}
+        .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin-bottom:1rem;text-wrap:balance}
+        .hero p{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.85);max-width:640px;margin:0 auto 2rem}
+        .hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--white);padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform .2s,opacity .2s}
+        .hero-cta:hover{transform:translateY(-2px);opacity:.9}
+        .hero-cta:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:8px}
+        section{padding:5rem 2rem}
+        .container{max-width:1200px;margin:0 auto}
+        .section-title{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;text-align:center;margin-bottom:.75rem;color:var(--navy);text-wrap:balance}
+        .section-subtitle{text-align:center;color:var(--text-light);max-width:600px;margin:0 auto 3rem}
+        .about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+        .about-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;transition:transform .2s}
+        .about-card:hover{transform:translateY(-4px)}
+        .about-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem}
+        .about-card h3{font-size:1.1rem;margin-bottom:.5rem;color:var(--navy)}
+        .about-card p{font-size:.9rem;color:var(--text-light)}
+        .services{background:var(--white)}
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+        .service-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform .2s}
+        .service-card:hover{transform:translateY(-4px)}
+        .service-badge{display:inline-block;background:linear-gradient(135deg,var(--navy),var(--blue));color:var(--white);padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:1rem}
+        .service-card h3{font-size:1.2rem;margin-bottom:.75rem;color:var(--navy)}
+        .service-card ul{list-style:none;padding:0}
+        .service-card li{padding:.35rem 0;font-size:.9rem;color:var(--text-light);padding-left:1.2rem;position:relative}
+        .service-card li::before{content:'\2192';position:absolute;left:0;color:var(--blue);font-weight:600}
+        .bg-services{background:linear-gradient(135deg,var(--navy) 0%,#163a65 100%);color:var(--white)}
+        .bg-services .section-title{color:var(--white)}
+        .bg-services .section-subtitle{color:rgba(255,255,255,.7)}
+        .bg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+        .bg-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:2rem;backdrop-filter:blur(4px);transition:transform .2s}
+        .bg-card:hover{transform:translateY(-4px)}
+        .bg-card-icon{font-size:2.5rem;margin-bottom:1rem}
+        .bg-card h3{font-size:1.2rem;margin-bottom:.75rem}
+        .bg-card p{font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.7}
+        .contact{background:var(--white)}
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+        .contact-info h3{font-size:1.3rem;color:var(--navy);margin-bottom:1.5rem}
+        .contact-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:1.25rem}
+        .contact-item-icon{width:40px;height:40px;background:var(--bg);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+        .contact-item-text strong{display:block;font-size:.85rem;color:var(--text)}
+        .contact-item-text span{font-size:.85rem;color:var(--text-light)}
+        .contact-item-text a{color:var(--blue);text-decoration:none}
+        .contact-item-text a:hover{text-decoration:underline}
+        .contact-item-text a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+        .contact-form{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:2rem}
+        .form-group{margin-bottom:1.25rem}
+        .form-group label{display:block;font-size:.85rem;font-weight:500;margin-bottom:.4rem;color:var(--text)}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.9rem;background:var(--white);color:var(--text);transition:border-color .2s}
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(74,155,217,.15)}
+        .form-group input:focus-visible,.form-group textarea:focus-visible,.form-group select:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+        .form-group textarea{resize:vertical;min-height:100px}
+        .form-submit{width:100%;padding:12px;background:var(--navy);color:var(--white);border:none;border-radius:8px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+        .form-submit:hover{opacity:.9}
+        .form-submit:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+        .form-submit:disabled{opacity:.5;cursor:not-allowed}
+        footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2rem;text-align:center;font-size:.85rem}
+        footer a{color:var(--light-blue);text-decoration:none}
+        footer a:hover{text-decoration:underline}
+        @media(max-width:768px){.nav-links{display:none}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--navy);padding:1rem 2rem 2rem;gap:1rem}.burger{display:block}.hero{padding:8rem 1.5rem 4rem}.contact-grid{grid-template-columns:1fr}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+    </style>
+</head>
+<body>
+<nav><div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="assets/logo.jpg" alt="EUROSFERA" width="40" height="40"><span>EUROSFERA</span></a>
+    <ul class="nav-links" id="navLinks"><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#bulgaria">Bulgaria</a></li><li><a href="#contact">Contact</a></li></ul>
+    <button class="burger" id="burger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+</div></nav>
+
+<section class="hero"><div class="container">
+    <h1>European Trading &amp; Distribution</h1>
+    <p>EUROSFERA EOOD &mdash; a Bulgaria-based company connecting businesses across Europe. IT&nbsp;solutions, construction materials, raw materials, and professional services.</p>
+    <a href="#contact" class="hero-cta">Get in Touch &rarr;</a>
+</div></section>
+
+<section id="about"><div class="container">
+    <h2 class="section-title">Why EUROSFERA</h2>
+    <p class="section-subtitle">We bridge the gap between manufacturers and buyers across the European market.</p>
+    <div class="about-grid">
+        <div class="about-card"><div class="about-icon">&#127758;</div><h3>EU-Based</h3><p>Registered in Bulgaria, operating across the European Union with full compliance and transparency.</p></div>
+        <div class="about-card"><div class="about-icon">&#129309;</div><h3>B2B Focus</h3><p>We work exclusively with businesses &mdash; manufacturers, distributors, and retailers across multiple industries.</p></div>
+        <div class="about-card"><div class="about-icon">&#128230;</div><h3>Full-Cycle</h3><p>From sourcing and negotiation to logistics and customs &mdash; we handle the entire supply chain.</p></div>
+        <div class="about-card"><div class="about-icon">&#128274;</div><h3>Compliance</h3><p>VAT-registered, CE&nbsp;certification support, REACH compliance, and proper documentation for every shipment.</p></div>
+    </div>
+</div></section>
+
+<section id="services" class="services"><div class="container">
+    <h2 class="section-title">Our Directions</h2>
+    <p class="section-subtitle">Multi-industry expertise with a focus on European markets.</p>
+    <div class="services-grid">
+        <div class="service-card"><span class="service-badge">IT &amp; Software</span><h3>Software Licensing &amp; IT Solutions</h3><ul>
+            <li>Microsoft (Windows, Office, Server)</li><li>MDaemon Email Server</li><li>ZWCAD &amp; CAD Solutions</li><li>Adobe Creative Suite</li><li>Enterprise licensing &amp; volume deals</li></ul></div>
+        <div class="service-card"><span class="service-badge">Construction</span><h3>Construction Materials</h3><ul>
+            <li>Porcelain tiles &amp; ceramics</li><li>Sanitary ware &amp; plumbing</li><li>Building materials wholesale</li><li>Factory-direct supply from EU producers</li><li>Paradyz, Cersanit, Atlas Concorde</li></ul></div>
+        <div class="service-card"><span class="service-badge">Raw Materials</span><h3>Raw Materials &amp; Commodities</h3><ul>
+            <li>Baltic amber (raw &amp; processed)</li><li>PP woven fabric &amp; packaging</li><li>Food products &amp; marzipan</li><li>Sourcing from verified EU suppliers</li></ul></div>
+        <div class="service-card"><span class="service-badge">Logistics</span><h3>Trade &amp; Logistics</h3><ul>
+            <li>Import/export within EU</li><li>Customs documentation</li><li>Incoterms consulting</li><li>Warehousing in Bulgaria</li><li>HS code classification &amp; VAT handling</li></ul></div>
+    </div>
+</div></section>
+
+<section id="bulgaria" class="bg-services"><div class="container">
+    <h2 class="section-title">Business Services in Bulgaria</h2>
+    <p class="section-subtitle">We help you find trusted professionals for your business operations in Bulgaria.</p>
+    <div class="bg-grid">
+        <div class="bg-card"><div class="bg-card-icon">&#127970;</div><h3>Company Registration</h3><p>We connect you with experienced specialists who handle company formation in Bulgaria &mdash; EOOD, OOD, branch offices. Full support from documents to registration at the Commercial Register.</p></div>
+        <div class="bg-card"><div class="bg-card-icon">&#128202;</div><h3>Accounting Services</h3><p>Find qualified Bulgarian accountants for your business. VAT registration, monthly reporting to NAP, annual financial statements, payroll, and tax optimization within Bulgarian law.</p></div>
+        <div class="bg-card"><div class="bg-card-icon">&#9878;&#65039;</div><h3>Legal Support</h3><p>Access vetted lawyers specializing in Bulgarian business law. Contract drafting, labor law, commercial disputes, intellectual property, and regulatory compliance in the EU.</p></div>
+    </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Ready to discuss your project? Reach out and we will respond within 24&nbsp;hours.</p>
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h3>EUROSFERA EOOD</h3>
+            <div class="contact-item"><div class="contact-item-icon">&#128205;</div><div class="contact-item-text"><strong>Address</strong><span>Sofia, Bulgaria, EU</span></div></div>
+            <div class="contact-item"><div class="contact-item-icon">&#9993;&#65039;</div><div class="contact-item-text"><strong>Email</strong><a href="mailto:info@euro.s.bg">info@euro.s.bg</a></div></div>
+            <div class="contact-item"><div class="contact-item-icon">&#127760;</div><div class="contact-item-text"><strong>Website</strong><a href="https://euro.s.bg">euro.s.bg</a></div></div>
+            <div class="contact-item"><div class="contact-item-icon">&#128336;</div><div class="contact-item-text"><strong>Working Hours</strong><span>Mon&ndash;Fri, 09:00&ndash;18:00 EET</span></div></div>
+        </div>
+        <form class="contact-form" id="contactForm" action="#" method="POST">
+            <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+            <div class="form-group"><label for="subject">Subject</label><select id="subject" name="subject">
+                <option value="general">General Inquiry</option><option value="it">IT &amp; Software</option><option value="construction">Construction Materials</option><option value="raw">Raw Materials</option><option value="logistics">Trade &amp; Logistics</option><option value="company">Company Registration in Bulgaria</option><option value="accounting">Accounting Services</option><option value="legal">Legal Support</option></select></div>
+            <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="4" required></textarea></div>
+            <button type="submit" class="form-submit">Send Message</button>
+        </form>
+    </div>
+</div></section>
+
+<footer><div class="container"><p>&copy; 2026 EUROSFERA EOOD. All rights reserved. Sofia, Bulgaria, EU.</p></div></footer>
+
+<script>
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{navLinks.classList.toggle('active');burger.setAttribute('aria-expanded',navLinks.classList.contains('active'))});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('active')));
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const b=e.target.querySelector('.form-submit');b.disabled=true;b.textContent='Sending\u2026';setTimeout(()=>{b.textContent='Sent \u2713';e.target.reset();setTimeout(()=>{b.disabled=false;b.textContent='Send Message'},2000)},1000)});
+</script>
+</body></html>
